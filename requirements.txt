@@ -1,0 +1,8 @@
+beautifulsoup4
+cloudscrapper
+dacite
+fastapi[all]
+requests
+tomli >= 1.1.0 ; python_version < "3.11"
+traktexport
+typer[all]
