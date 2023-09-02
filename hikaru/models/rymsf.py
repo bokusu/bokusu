@@ -56,6 +56,34 @@ class ExtendedScore:
     """Sound score"""
 
 @dataclass
+class Mappings:
+    """Entry mapping to external sites"""
+    aniDb: str | None = None
+    anilist: str | None = None
+    animePlanet: str | None = None
+    aniSearch: str | None = None
+    annict: str | None = None
+    bangumi: str | None = None
+    goodreads: str | None = None
+    imdb: str | None = None
+    kaize: str | None = None
+    kinopoisk: str | None = None
+    kitsu: str | None = None
+    livechart: str | None = None
+    mangaUpdates: str | None = None
+    myanimelist: str | None = None
+    myshows: str | None = None
+    nautiljon: str | None = None
+    notifyMoe: str | None = None
+    novelUpdates: str | None = None
+    otakOtaku: str | None = None
+    shikimori: str | None = None
+    simkl: str | None = None
+    tmdb: str | None = None
+    trakt: str | None = None
+    tvmaze: str | None = None
+
+@dataclass
 class MediaEntry:
     """Metadata of the title"""
     id: str | int
@@ -115,7 +143,7 @@ class MediaEntry:
         'veryhigh',
     ]
     """Likelyhood user would replay the title"""
-    upstream: Current | None = None
+    upstream: Progress | None = None
     """Media progress of release"""
     isPrivate: bool | None = None
     """Is the title set to private on user's list?"""
@@ -138,6 +166,8 @@ class MediaEntry:
         'mad'
     ] | None = None
     """User's reaction to the title"""
+    mappings: Mappings | None = None
+    """External sites mapping to the entry"""
     metadata: dict[str, Any] | None = None
     """Extended details of the title"""
 
