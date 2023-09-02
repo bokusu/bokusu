@@ -168,6 +168,10 @@ class MediaEntry:
     """User's reaction to the title"""
     mappings: Mappings | None = None
     """External sites mapping to the entry"""
+    updated: datetime | None = None
+    """Updated time of the entry list"""
+    created: datetime | None = None
+    """Created date of the entry list"""
     metadata: dict[str, Any] | None = None
     """Extended details of the title"""
 
