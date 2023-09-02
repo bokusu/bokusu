@@ -1,5 +1,5 @@
 beautifulsoup4
-cloudscrapper
+cloudscraper
 dacite
 fastapi[all]
 requests
