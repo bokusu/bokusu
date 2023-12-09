@@ -1,6 +1,7 @@
 """This module contains functions for setting up folders."""
 
 import os
+from platform import system
 from typing import Optional
 
 def add_directory(path: str, name: Optional[str] = None) -> None:
@@ -19,3 +20,36 @@ def add_directory(path: str, name: Optional[str] = None) -> None:
         os.makedirs(path)
     else:
         print(f"Directory for {name} already exists.")
+
+def hide_unhide_directory(path, hide=True):
+    """
+    Hide or unhide a directory based on the platform.
+
+    :param path: Path to the directory
+    :param hide: True to hide, False to unhide
+    """
+    curr_os = system()
+    if curr_os == "Windows":
+        try:
+            # Get the current attributes
+            attributes = os.stat(path).st_file_attributes
+
+            # Set or clear the hidden attribute
+            if hide:
+                attributes |= 2  # Add the hidden attribute
+            else:
+                attributes &= ~2  # Remove the hidden attribute
+
+            # Set the new attributes
+            os.chflags(path, attributes)
+        except Exception as e:
+            print(f"Error: {e}")
+    elif curr_os == "Darwin":  # macOS
+        try:
+            # Set or clear the hidden flag using chflags
+            flag = "hidden" if hide else "nohidden"
+            os.system(f"chflags {flag} '{path}'")
+        except Exception as e:
+            print(f"Error: {e}")
+    else:
+        pass
