@@ -44,6 +44,8 @@ class WaybackClient:
             sleep(300)
             snapshot = save.save()
         # return the URL of the saved page
+        self.last_snapshot = datetime.now()
+        self.last_url = url
         return snapshot
 
 WAYBACK_CLIENT = WaybackClient()
