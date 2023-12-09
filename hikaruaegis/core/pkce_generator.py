@@ -3,7 +3,13 @@
 from base64 import urlsafe_b64encode
 from hashlib import sha256
 from secrets import token_urlsafe
+from typing import TypedDict
 
+
+class PkceDict(TypedDict):
+    """A dictionary containing verifier and code challenge"""
+    verifier: str
+    code_challenge: str
 
 def generate_pkce_code_verifier(length: int = 128) -> str:
     """
@@ -34,3 +40,21 @@ def generate_pkce_code_challenge(verifier: str) -> str:
     sha256_hash = sha256(verifier_bytes).digest()
     code_challenge = urlsafe_b64encode(sha256_hash).rstrip(b'=').decode('utf-8')
     return code_challenge
+
+def build_pcke_challenge(length: int = 128) -> PkceDict:
+    """
+    Generate a PCKE challenger, complete with verifier and code challenge 👍
+
+    :param length: Determine length of character to be generated
+    :type length: int = 128
+    :return: Dictionary containing a verifier and code challenger
+    :rtype: PckeDict
+    """
+
+    verify = generate_pkce_code_verifier(length=length)
+    final_dict: PkceDict = {
+        "verify": verify,
+        "code_challenge": generate_pkce_code_challenge(verify),
+    }
+
+    return final_dict
