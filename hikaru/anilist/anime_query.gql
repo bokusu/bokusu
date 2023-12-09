@@ -1,0 +1,56 @@
+query($name: String!){
+  MediaListCollection(userName: $name, type: ANIME){
+    lists{
+      name
+      isCustomList
+      isSplitCompletedList
+      entries{
+        ... mediaListEntry
+      }
+    }
+  }
+  User(name: $name){
+    name
+    id
+    mediaListOptions{
+      scoreFormat
+    }
+  }
+}
+
+fragment mediaListEntry on MediaList{
+  mediaId
+  status
+  progress
+  repeat
+  notes
+  priority
+  hiddenFromStatusLists
+  customLists
+  advancedScores
+  startedAt{
+    year
+    month
+    day
+  }
+  completedAt{
+    year
+    month
+    day
+  }
+  updatedAt
+  createdAt
+  media{
+    idMal
+    title{romaji native english}
+    episodes
+    format
+    countryOfOrigin
+    duration
+    seasonYear
+    season
+    duration
+  }
+  score
+  private
+}
