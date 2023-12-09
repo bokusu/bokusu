@@ -1,8 +1,11 @@
+animeapi-py
 beautifulsoup4
 cloudscraper
 dacite
+fake-useragent
 fastapi[all]
 requests
-tomli >= 1.1.0 ; python_version < "3.11"
+slugify
 traktexport
 typer[all]
+waybackpy
