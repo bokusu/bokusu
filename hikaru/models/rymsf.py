@@ -141,7 +141,7 @@ class MediaEntry:
         'medium',
         'high',
         'veryhigh',
-    ]
+    ] | None = None
     """Likelyhood user would replay the title"""
     upstream: Progress | None = None
     """Media progress of release"""
