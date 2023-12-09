@@ -7,7 +7,7 @@ backups your media lists from 17 sites and counting.
 
 Before you can use hikaru-aegis, you need to install the following:
 
-* Python 3.8 or higher, recommended to install 3.11 instead as it is the only
+* Python 3.10 or higher, recommended to install 3.11 instead as it is the only
   version that is fully tested and supported.
 * [Keepass v2.47 or higher](https://keepass.info/download.html) for secrets
   management.
