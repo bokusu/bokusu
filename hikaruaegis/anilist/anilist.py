@@ -1,7 +1,7 @@
 from json import dumps
 from typing import Literal
 
-from hikaru.core.commons import read_resource
+from hikaruaegis.core.commons import read_resource
 
 
 def load_anilist_gql(media_type: Literal["anime", "manga"],

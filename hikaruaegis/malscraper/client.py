@@ -2,7 +2,7 @@ from typing import Literal
 
 import requests as req
 
-from hikaru.core.const import USER_AGENT
+from hikaruaegis.core.const import USER_AGENT
 
 
 class MALScraper:
