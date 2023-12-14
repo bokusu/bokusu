@@ -25,7 +25,6 @@ class MALScraper:
                     media_type: Literal["anime", "manga"],
                     update_on_import: bool = True,
                     use_alt: bool = False,
-                    export_to: str | None = None,
                     ) -> str:
         """
         Export list using malscraper from determined source
@@ -40,8 +39,6 @@ class MALScraper:
         :type update_on_import: bool = True
         :param use_alt: Use alternative mode? For MAL, uses HTML scraping, AniList rounded the score. Default: False
         :type use_alt: bool = False
-        :param export_to: Target which folder to export the XML file. Default: None
-        :type export_to: str | None = None
 
         :return: XML string of exported list
         :rtype: str
@@ -68,9 +65,6 @@ class MALScraper:
                             "User-Agent": self.user_agent,})
 
         text = post.text
-        if export_to:
-            with open(export_to, "w", encoding="utf8") as file:
-                file.write(text)
 
         return text
 
