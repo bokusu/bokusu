@@ -4,7 +4,9 @@ cloudscraper
 dacite
 fake-useragent
 fastapi[all]
+keyring
 requests
+pykeepass
 slugify
 traktexport
 typer[all]
