@@ -20,7 +20,7 @@ def export_animeplanet(media_type: Literal["anime", "manga"]) -> bool:
     client = MALScraper()
 
     # create directory for export
-    path = add_directory("backup", "Anime-Planet")
+    path = add_directory("backup", name="Anime-Planet")
 
     # export list
     try:
@@ -28,10 +28,13 @@ def export_animeplanet(media_type: Literal["anime", "manga"]) -> bool:
             ANIMEPLANET_USERNAME,
             "animeplanet",
             media_type,
-            export_to=f"{path}/animeplanet_{media_type}.xml"
         )
+        # write export to file
+        with open(f"{path}/{media_type}.xml", "w", encoding="utf-8") as file:
+            file.write(export)
         return True
-    except Exception as e:
+
+    except Exception as _:
         print_exc()
         return False
 
