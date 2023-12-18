@@ -23,9 +23,9 @@ backups your media lists from 15 sites and counting.
   <tr>
     <td align="center"><a href="https://anilist.co">AniList</a><br>🍥📔 / 🔐⌛</td>
     <td align="center"><a href="https://anime-planet.com">Anime-Planet</a><br>🍥📔 / 👥📸</td>
-    <td align="center"><a href="https://annict.com">Annict</a><br>🍥 / 🔐📸⌛</td>
+    <td align="center"><a href="https://annict.com">Annict</a><br>🍥 / 🔐📸⌛🌐</td>
     <td align="center"><a href="https://mangaupdates.com">Baka-Updates Manga</a><br>📔 / 🔐📸</td>
-    <td align="center"><a href="https://bgm.tv">Bangumi</a><br>🍥📔📺 / 🔐📸</td>
+    <td align="center"><a href="https://bgm.tv">Bangumi</a><br>🍥📔🎮📺 / 🔐📸🌐</td>
   </tr>
   <tr>
     <td align="center"><a href="https://kaize.io"><img src="images/kaize.png" alt="Kaize" width="100"></a></td>
@@ -49,9 +49,9 @@ backups your media lists from 15 sites and counting.
     <td align="center"><a href="https://vndb.org"><img src="images/vndb.jpg" alt="VNDB" width="100"></a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://otakotaku.com">Otak Otaku</a><br>🍥 / 👥📸</td>
-    <td align="center"><a href="https://shikimori.one">Shikimori</a><br>🍥📔 / 🔐📸</td>
-    <td align="center"><a href="https://simkl.com">Simkl</a><br>🍥📺🎬 / 🔐📸</td>
+    <td align="center"><a href="https://otakotaku.com">Otak Otaku</a><br>🍥 / 👥📸🌐</td>
+    <td align="center"><a href="https://shikimori.one">Shikimori</a><br>🍥📔 / 🔐📸🌐</td>
+    <td align="center"><a href="https://simkl.com">SIMKL</a><br>🍥📺🎬 / 🔐📸</td>
     <td align="center"><a href="https://trakt.tv">Trakt</a><br>📺🎬 / 🔐📸⌛</td>
     <td align="center"><a href="https://vndb.org">VNDB</a><br>🎮 / 🔐📸</td>
   </tr>
@@ -61,16 +61,26 @@ backups your media lists from 15 sites and counting.
 
 <table>
   <tr>
+    <th colspan="6" align="center">Supported Media Types</th>
+  </tr>
+  <tr>
     <th>🍥</th>
     <td>Anime</td>
     <th>📔</th>
     <td>Manga</td>
     <th>🎮</th>
     <td>Games</td>
+  </tr>
+  <tr>
     <th>📺</th>
     <td>TV Show</td>
     <th>🎬</th>
     <td>Movie</td>
+    <th>📖</th>
+    <td>Book</td>
+  </tr>
+  <tr>
+    <th colspan="6" align="center">Site Information</th>
   </tr>
   <tr>
     <th>👥</th>
@@ -79,10 +89,15 @@ backups your media lists from 15 sites and counting.
     <td>Requires login</td>
     <th>📸</th>
     <td>Wayback Machine support</td>
+  </tr>
+  <tr>
     <th>🧼</th>
     <td>No Explicit Content</td>
     <th>⌛</th>
     <td>Exports history log</td>
+    <th>🌐</th>
+    <td>Regionalized sites</td>
+  </tr>
 </table>
 <!-- markdownlint-enable MD033 -->
 
@@ -93,13 +108,15 @@ backups your media lists from 15 sites and counting.
 > The following sites are planned to be integrated in the future, but not
 > guaranteed to be implemented due some known issues or limitations.
 
-* [ ] [aniSearch](https://anisearch.com) &mdash; Anime / Manga
+* [ ] [aniSearch](https://anisearch.com) &mdash; Anime / Manga / TV Show / Movie,
+  regionalized site
 * [ ] [Goodreads](https://goodreads.com) &mdash; Books
 * [ ] [IMDb](https://imdb.com) &mdash; TV Show / Movie
 * [ ] [LiveChart.me](https://livechart.me) &mdash; Anime
 * [ ] [MyDramaList](https://mydramalist.com) &mdash; TV Show / Movie
-* [ ] [Nautiljon](https://nautiljon.com) &mdash; Anime / Manga
-* [ ] [RAWG](https://rawg.io) &mdash; Games
+* [ ] [Nautiljon](https://nautiljon.com) &mdash; Anime / Manga / TV Show / Movie,
+  regionalized site
+* [ ] [RAWG](https://rawg.io) &mdash; Game
 * [ ] [The Movie Database](https://themoviedb.org) &mdash; TV Show / Movie
 
 If you want to see a site that is not listed here, please open an issue and we'll
@@ -123,11 +140,11 @@ support importing from MAL.
 |              Kitsu |           |   ✅    |   ✅   |       ✅        |       |            |        MALXML         |
 |           MangaDex |           |   ✅    |   ✅   |       ✅        |       |            |                       |
 |             Notify |           |   ✅    |   ✅   |       ✅        |   ✅   |     ✅      |      MALXML[^7]       |
-|         Otak Otaku |           |   ✅    |   ✅   |                |       |            |        MALXML         |
+|         Otak Otaku |           |   ✅    |   ✅   |       ✅        |       |            |        MALXML         |
 |          Shikimori |           |   ✅    |   ✅   |       ✅        |       |            |     MALXML, JSON      |
 |              SIMKL |           |   ✅    |   ✅   |       ✅        |       |            | MALXML[^7], JSON, CSV |
 |              Trakt |           |        |   ✅   |                |       |   ✅[^3]    |                       |
-|               VNDB |     ✅     |        |   ✅   |       ✅        |       |            |                       |
+|               VNDB |     ✅     |        |   ✅   |               |       |            |                       |
 
 [^1]: [Ryuuganime Media Save File format][rymsf] is experimental standardized
       schema format for media list backup. While it is not supported by any
@@ -153,7 +170,8 @@ Before you can use hikaru-aegis, you need to install the following:
 * Python 3.10 or higher, recommended to install 3.11 instead as it is the only
   version that is fully tested and supported.
 * Keyring daemon/service/agent available in your system, such as
-  [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring) for Linux,
+  [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring) (or related
+  keyring daemon for your desktop environment) for Linux,
   [Keychain](https://www.funtoo.org/Keychain) for macOS, or
   [Windows Credential Manager](https://support.microsoft.com/en-us/windows/accessing-credential-manager-1b5c916a-6a16-889f-8581-fc16e8165ac0)
   for Windows. Required IF you want to use hikaru-aegis locally, otherwise
@@ -179,6 +197,51 @@ pip install hikaru-aegis
 > * If `pip` is reported as not found, add `python -m` (or `python3 -m` in some
 >  systems) before `pip` in the command above.
 
+If during installation you may encounter an error related to building the
+dependencies, you may need to install the following packages first:
+
+* Linux and macOS:
+  * `python3-dev` (or `python3-devel` in some systems, or omit `3` if the system
+    only has Python 3)
+  * `build-essential` (or `gcc` and `g++` in some systems)
+* Windows:
+  * [Visual Studio Build Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019)
+    (or Visual Studio 2019 with C++ build tools)
+  * [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://visualstudio.microsoft.com/downloads/#microsoft-visual-c-redistributable-for-visual-studio-2019)
+
+## Setup and Configuration
+
+To use hikaru-aegis, you need to configure it first. You can do so by running
+the following command:
+
+```bash
+hikaruaegis setup
+```
+
+This will ask you to enter your credentials for each site you want to backup,
+and create a configuration file for you. The configuration file will be stored
+in your user directory (`~/.hikaruaegis`), and will be used by hikaru-aegis to
+authenticate you when you run the backup command.
+
+Follow the instructions on the screen to complete the setup, or visit the
+[wiki](https://github.com/Animanga-Initiative/hikaru-aegis/wiki) for more
+information.
+
+If you want to change your credentials, you can run following command:
+
+```bash
+hikaruaegis accounts --edit
+# If you're geeky enough, you can use following command instead to launch via
+# Keepass
+hikaruaegis accounts --edit-keepass
+```
+
+Or, if you want to change your configuration, you can run the following command:
+
+```bash
+hikaruaegis config --edit
+```
+
 ## Usage
 
 `hikaru-aegis` is a command-line tool, so you need to run it in a terminal.
@@ -190,6 +253,19 @@ hikaruaegis
 ```
 
 This will show you the help message and the available commands.
+
+## License
+
+`hikaru-aegis` is licensed under [GPL Affero v3.0 or later (AGPL-3.0+)](LICENSE)
+due to heavy use of [AnimeAPI][aa] API for remapping IDs across sites.
+
+We recommend you to use the program as-is and not integrating it to your other
+open source project/suite, since it will force your project to be licensed under
+AGPL-3.0+ as well unless the project is copylefted under GPL-3.0+ or compatible
+GPL licenses.
+
+We are not a lawyer, so please consult your lawyer to make sure you are not
+violating the license.
 
 [aa]: https://animeapi.my.id
 [amab]: https://github.com/Animanga-Initiative/animeManga-autoBackup
