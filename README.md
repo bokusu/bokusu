@@ -112,8 +112,13 @@ backups your media lists from 15 sites and counting.
   regionalized site
 * [ ] [Goodreads](https://goodreads.com) &mdash; Books
 * [ ] [IMDb](https://imdb.com) &mdash; TV Show / Movie
+* [ ] [Kinopoisk](https://kinopoisk.ru) &mdash; TV Show / Movie, regionalized
+  site
+* [ ] [Kinorium](https://en.kinorium.com) &mdash; TV Show / Movie, regionalized
+  site
 * [ ] [LiveChart.me](https://livechart.me) &mdash; Anime
 * [ ] [MyDramaList](https://mydramalist.com) &mdash; TV Show / Movie
+* [ ] [MyShows](https://en.myshows.me) &mdash; TV Show / Movie, regionalized site
 * [ ] [Nautiljon](https://nautiljon.com) &mdash; Anime / Manga / TV Show / Movie,
   regionalized site
 * [ ] [RAWG](https://rawg.io) &mdash; Game
