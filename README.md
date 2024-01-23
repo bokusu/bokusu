@@ -1,7 +1,7 @@
 # hikaru-aegis
 
 Spiritual successor for [animeManga-autoBackup][amab] rewritten in Python, easily
-backups your media lists from 15 sites and counting.
+backups your media lists from 16 sites and counting.
 
 > [!WARNING]
 >
@@ -54,6 +54,12 @@ backups your media lists from 15 sites and counting.
     <td align="center"><a href="https://simkl.com">SIMKL</a><br>🍥📺🎬 / 🔐📸</td>
     <td align="center"><a href="https://trakt.tv">Trakt</a><br>📺🎬 / 🔐📸⌛</td>
     <td align="center"><a href="https://vndb.org">VNDB</a><br>🎮 / 🔐📸</td>
+  </tr>
+  <tr>
+    <td colspan="5" align="center"><a href="https://thewakuwaku.com"><img src="images/wakuwaku.png" alt="WakuWaku" width="100"></a><td>
+  </tr>
+  <tr>
+    <td colspan="5" align="center"><a href="https://thewakuwaku.com">WakuWaku</a><br>🍥 / 👥📸</td>
   </tr>
 </table>
 
@@ -108,21 +114,17 @@ backups your media lists from 15 sites and counting.
 > The following sites are planned to be integrated in the future, but not
 > guaranteed to be implemented due some known issues or limitations.
 
-* [ ] [aniSearch](https://anisearch.com) &mdash; Anime / Manga / TV Show / Movie,
-  regionalized site
-* [ ] [Goodreads](https://goodreads.com) &mdash; Books
-* [ ] [IMDb](https://imdb.com) &mdash; TV Show / Movie
-* [ ] [Kinopoisk](https://kinopoisk.ru) &mdash; TV Show / Movie, regionalized
-  site
-* [ ] [Kinorium](https://en.kinorium.com) &mdash; TV Show / Movie, regionalized
-  site
-* [ ] [LiveChart.me](https://livechart.me) &mdash; Anime
-* [ ] [MyDramaList](https://mydramalist.com) &mdash; TV Show / Movie
-* [ ] [MyShows](https://en.myshows.me) &mdash; TV Show / Movie, regionalized site
-* [ ] [Nautiljon](https://nautiljon.com) &mdash; Anime / Manga / TV Show / Movie,
-  regionalized site
-* [ ] [RAWG](https://rawg.io) &mdash; Game
-* [ ] [The Movie Database](https://themoviedb.org) &mdash; TV Show / Movie
+* [ ] [aniSearch](https://anisearch.com) &mdash; 🍥📔📺🎬 / 🌐
+* [ ] [Goodreads](https://goodreads.com) &mdash; 📖
+* [ ] [IMDb](https://imdb.com) &mdash; 📺🎬
+* [ ] [Kinopoisk](https://kinopoisk.ru) &mdash; 📺🎬 / 🌐
+* [ ] [Kinorium](https://en.kinorium.com) &mdash; 📺🎬 / 🌐
+* [ ] [LiveChart.me](https://livechart.me) &mdash; 🍥
+* [ ] [MyDramaList](https://mydramalist.com) &mdash; 📺🎬
+* [ ] [MyShows](https://en.myshows.me) &mdash; 📺🎬 / 🌐
+* [ ] [Nautiljon](https://nautiljon.com) &mdash; 🍥📔📺🎬 / 🌐
+* [ ] [RAWG](https://rawg.io) &mdash; 🎮
+* [ ] [The Movie Database](https://themoviedb.org) &mdash; 📺🎬
 
 If you want to see a site that is not listed here, please open an issue and we'll
 see what we can do.
@@ -134,9 +136,9 @@ choose the one that is most suitable for your use case. In most cases, you
 only need MAL-flavored XML format so you can import it to other sites that
 support importing from MAL.
 
-|               Site | XML Plain | MALXML | JSON  | RYMSF YAML[^1] |  CSV  | Plain Text |     Reimportable[^2]      |
+|               Site | XML Plain | MALXML | JSON  | RYMSF YAML[^1] |  CSV  | Plain Text |   Reimportable[^2]    |
 | -----------------: | :-------: | :----: | :---: | :------------: | :---: | :--------: | :-------------------: |
-|            AniList |           |   ✅    |   ✅   |       ✅        |       |     ✅[^3]       |   MALXML, JSON[^4]    |
+|            AniList |           |   ✅    |   ✅   |       ✅        |       |   ✅[^3]    |   MALXML, JSON[^4]    |
 |       Anime-Planet |           |   ✅    |   ✅   |       ✅        |       |            |        MALXML         |
 |             Annict |           | ⭕[^5]  |   ✅   |     ⭕[^5]      |       |   ✅[^3]    |                       |
 | Baka-Updates Manga |           |        |       |                |   ✅   |            |                       |
@@ -144,12 +146,14 @@ support importing from MAL.
 |              Kaize |           | ✅[^6]  |   ✅   |       ✅        |       |            |        MALXML         |
 |              Kitsu |           |   ✅    |   ✅   |       ✅        |       |            |        MALXML         |
 |           MangaDex |           |   ✅    |   ✅   |       ✅        |       |            |                       |
+|        MyAnimeList |           |   ✅    |   ✅   |       ✅        |       |            |        MALXML         |
 |             Notify |           |   ✅    |   ✅   |       ✅        |   ✅   |     ✅      |      MALXML[^7]       |
 |         Otak Otaku |           |   ✅    |   ✅   |       ✅        |       |            |        MALXML         |
 |          Shikimori |           |   ✅    |   ✅   |       ✅        |       |            |     MALXML, JSON      |
 |              SIMKL |           |   ✅    |   ✅   |       ✅        |       |            | MALXML[^7], JSON, CSV |
 |              Trakt |           |        |   ✅   |                |       |   ✅[^3]    |                       |
-|               VNDB |     ✅     |        |   ✅   |               |       |            |                       |
+|               VNDB |     ✅     |        |   ✅   |                |       |            |                       |
+|           WakuWaku |           |   ✅    |   ✅   |       ✅        |       |            |                       |
 
 [^1]: [Ryuuganime Media Save File format][rymsf] is experimental standardized
       schema format for media list backup. While it is not supported by any
