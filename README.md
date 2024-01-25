@@ -56,7 +56,7 @@ backups your media lists from 16 sites and counting.
     <td align="center"><a href="https://vndb.org">VNDB</a><br>🎮 / 🔐📸</td>
   </tr>
   <tr>
-    <td colspan="5" align="center"><a href="https://thewakuwaku.com"><img src="images/wakuwaku.png" alt="WakuWaku" width="100"></a><td>
+    <td colspan="5" align="center"><a href="https://thewakuwaku.com"><img src="images/wakuwaku.png" alt="WakuWaku" width="100"></a></td>
   </tr>
   <tr>
     <td colspan="5" align="center"><a href="https://thewakuwaku.com">WakuWaku</a><br>🍥 / 👥📸</td>
@@ -84,6 +84,14 @@ backups your media lists from 16 sites and counting.
     <td>Movie</td>
     <th>📖</th>
     <td>Book</td>
+  </tr>
+  <tr>
+    <th>🎵</th>
+    <td>Music</td>
+    <th></th>
+    <td></td>
+    <th></th>
+    <td></td>
   </tr>
   <tr>
     <th colspan="6" align="center">Site Information</th>
@@ -115,16 +123,17 @@ backups your media lists from 16 sites and counting.
 > guaranteed to be implemented due some known issues or limitations.
 
 * [ ] [aniSearch](https://anisearch.com) &mdash; 🍥📔📺🎬 / 🌐
-* [ ] [Goodreads](https://goodreads.com) &mdash; 📖
-* [ ] [IMDb](https://imdb.com) &mdash; 📺🎬
-* [ ] [Kinopoisk](https://kinopoisk.ru) &mdash; 📺🎬 / 🌐
-* [ ] [Kinorium](https://en.kinorium.com) &mdash; 📺🎬 / 🌐
+* [ ] [Goodreads](https://goodreads.com) &mdash; 📖 / ⌛📸
+* [ ] [IMDb](https://imdb.com) &mdash; 📺🎬 / 📸
+* [ ] [Kinopoisk](https://kinopoisk.ru) &mdash; 📺🎬 / 🌐📸
+* [ ] [Kinorium](https://en.kinorium.com) &mdash; 📺🎬 / 🌐📸
+* [ ] [Last.fm](https://last.fm) &mdash; 🎵 / ⌛📸
 * [ ] [LiveChart.me](https://livechart.me) &mdash; 🍥
-* [ ] [MyDramaList](https://mydramalist.com) &mdash; 📺🎬
-* [ ] [MyShows](https://en.myshows.me) &mdash; 📺🎬 / 🌐
-* [ ] [Nautiljon](https://nautiljon.com) &mdash; 🍥📔📺🎬 / 🌐
+* [ ] [MyDramaList](https://mydramalist.com) &mdash; 📺🎬 / 📸
+* [ ] [MyShows](https://en.myshows.me) &mdash; 📺🎬 / 🌐📸
+* [ ] [Nautiljon](https://nautiljon.com) &mdash; 🍥📔📺🎬 / 🌐📸
 * [ ] [RAWG](https://rawg.io) &mdash; 🎮
-* [ ] [The Movie Database](https://themoviedb.org) &mdash; 📺🎬
+* [ ] [The Movie Database](https://themoviedb.org) &mdash; 📺🎬 / 📸
 
 If you want to see a site that is not listed here, please open an issue and we'll
 see what we can do.
