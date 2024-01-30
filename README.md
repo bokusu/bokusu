@@ -1,7 +1,7 @@
 # hikaru-aegis
 
-Spiritual successor for [animeManga-autoBackup][amab] rewritten in Python, easily
-backups your media lists from 16 sites and counting.
+Easily backups your media lists from 17 sites and counting with async
+compability in mind.
 
 > [!WARNING]
 >
@@ -28,38 +28,40 @@ backups your media lists from 16 sites and counting.
     <td align="center"><a href="https://bgm.tv">Bangumi</a><br>🍥📔🎮📺 / 🔐📸🌐</td>
   </tr>
   <tr>
+    <td align="center"><a href="https://doujinshi.info"><img src="images/doujinshiinfo.png" alt="Doujinshi.info" width="100"></a></td>
     <td align="center"><a href="https://kaize.io"><img src="images/kaize.png" alt="Kaize" width="100"></a></td>
     <td align="center"><a href="https://kitsu.io"><img src="images/kitsu.png" alt="Kitsu" width="100"></a></td>
     <td align="center"><a href="https://mangadex.org"><img src="images/mangadex.png" alt="MangaDex" width="100"></a></td>
     <td align="center"><a href="https://myanimelist.net"><img src="images/myanimelist.png" alt="MyAnimeList" width="100"></a></td>
-    <td align="center"><a href="https://notify.moe"><img src="images/notifymoe.png" alt="notify.moe" width="100"></a></td>
   </tr>
   <tr>
+    <td align="center"><a href="https://doujinshi.info">Doujinshi.info</a><br>📔 / 🔐📸</td>
     <td align="center"><a href="https://kaize.io">Kaize</a><br>🍥📔 / 👥📸🧼</td>
     <td align="center"><a href="https://kitsu.io">Kitsu</a><br>🍥📔 / 🔐📸</td>
     <td align="center"><a href="https://mangadex.org">MangaDex</a><br>📔 / 🔐</td>
     <td align="center"><a href="https://myanimelist.net">MyAnimeList</a><br>🍥📔 / 👥🔐📸</td>
-    <td align="center"><a href="https://notify.moe">Notify</a><br>🍥 / 👥📸</td>
   </tr>
   <tr>
+    <td align="center"><a href="https://notify.moe"><img src="images/notifymoe.png" alt="notify.moe" width="100"></a></td>
     <td align="center"><a href="https://otakotaku.com"><img src="images/otakotaku.png" alt="Otak Otaku" width="100"></a></td>
     <td align="center"><a href="https://shikimori.one"><img src="images/shikimori.jpg" alt="Shikimori" width="100"></a></td>
     <td align="center"><a href="https://simkl.com"><img src="images/simkl.png" alt="Simkl" width="100"></a></td>
     <td align="center"><a href="https://trakt.tv"><img src="images/trakt.png" alt="Trakt" width="100"></a></td>
-    <td align="center"><a href="https://vndb.org"><img src="images/vndb.jpg" alt="VNDB" width="100"></a></td>
   </tr>
   <tr>
+    <td align="center"><a href="https://notify.moe">Notify</a><br>🍥 / 👥📸</td>
     <td align="center"><a href="https://otakotaku.com">Otak Otaku</a><br>🍥 / 👥📸🌐</td>
     <td align="center"><a href="https://shikimori.one">Shikimori</a><br>🍥📔 / 🔐📸🌐</td>
     <td align="center"><a href="https://simkl.com">SIMKL</a><br>🍥📺🎬 / 🔐📸</td>
     <td align="center"><a href="https://trakt.tv">Trakt</a><br>📺🎬 / 🔐📸⌛</td>
-    <td align="center"><a href="https://vndb.org">VNDB</a><br>🎮 / 🔐📸</td>
   </tr>
   <tr>
-    <td colspan="5" align="center"><a href="https://thewakuwaku.com"><img src="images/wakuwaku.png" alt="WakuWaku" width="100"></a></td>
+    <td colspan="3" align="center"><a href="https://vndb.org"><img src="images/vndb.jpg" alt="VNDB" width="100"></a></td>
+    <td colspan="2" align="center"><a href="https://thewakuwaku.com"><img src="images/wakuwaku.png" alt="WakuWaku" width="100"></a></td>
   </tr>
   <tr>
-    <td colspan="5" align="center"><a href="https://thewakuwaku.com">WakuWaku</a><br>🍥 / 👥📸</td>
+    <td colspan="3" align="center"><a href="https://vndb.org">VNDB</a><br>🎮 / 🔐📸</td>
+    <td colspan="2" align="center"><a href="https://thewakuwaku.com">WakuWaku</a><br>🍥 / 👥📸</td>
   </tr>
 </table>
 
@@ -112,6 +114,9 @@ backups your media lists from 16 sites and counting.
     <th>🌐</th>
     <td>Regionalized sites</td>
   </tr>
+  <tr>
+    <th>🏃</th>
+    <td colspan="5">Requires bypassing security screening/captcha</td>
 </table>
 <!-- markdownlint-enable MD033 -->
 
@@ -122,17 +127,17 @@ backups your media lists from 16 sites and counting.
 > The following sites are planned to be integrated in the future, but not
 > guaranteed to be implemented due some known issues or limitations.
 
-* [ ] [aniSearch](https://anisearch.com) &mdash; 🍥📔📺🎬 / 🌐
-* [ ] [Goodreads](https://goodreads.com) &mdash; 📖 / ⌛📸
-* [ ] [IMDb](https://imdb.com) &mdash; 📺🎬 / 📸
-* [ ] [Kinopoisk](https://kinopoisk.ru) &mdash; 📺🎬 / 🌐📸
-* [ ] [Kinorium](https://en.kinorium.com) &mdash; 📺🎬 / 🌐📸
+* [ ] [aniSearch](https://anisearch.com) &mdash; 🍥📔📺🎬 / 👥🌐🏃
+* [ ] [Goodreads](https://goodreads.com) &mdash; 📖 / 👥⌛📸
+* [ ] [IMDb](https://imdb.com) &mdash; 📺🎬 / 👥📸🏃
+* [ ] [Kinopoisk](https://kinopoisk.ru) &mdash; 📺🎬 / 👥🌐📸
+* [ ] [Kinorium](https://en.kinorium.com) &mdash; 📺🎬 / 👥🌐📸
 * [ ] [Last.fm](https://last.fm) &mdash; 🎵 / ⌛📸
-* [ ] [LiveChart.me](https://livechart.me) &mdash; 🍥
-* [ ] [MyDramaList](https://mydramalist.com) &mdash; 📺🎬 / 📸
-* [ ] [MyShows](https://en.myshows.me) &mdash; 📺🎬 / 🌐📸
-* [ ] [Nautiljon](https://nautiljon.com) &mdash; 🍥📔📺🎬 / 🌐📸
-* [ ] [RAWG](https://rawg.io) &mdash; 🎮
+* [ ] [LiveChart.me](https://livechart.me) &mdash; 🍥 / 🏃
+* [ ] [MyDramaList](https://mydramalist.com) &mdash; 📺🎬 / 👥📸
+* [ ] [MyShows](https://en.myshows.me) &mdash; 📺🎬 / 👥🌐📸
+* [ ] [Nautiljon](https://nautiljon.com) &mdash; 🍥📔📺🎬 / 👥🌐📸🏃
+* [ ] [RAWG](https://rawg.io) &mdash; 🎮 / 👥
 * [ ] [The Movie Database](https://themoviedb.org) &mdash; 📺🎬 / 📸
 
 If you want to see a site that is not listed here, please open an issue and we'll
@@ -152,6 +157,7 @@ support importing from MAL.
 |             Annict |           | ⭕[^5]  |   ✅   |     ⭕[^5]      |       |   ✅[^3]    |                       |
 | Baka-Updates Manga |           |        |       |                |   ✅   |            |                       |
 |            Bangumi |           |        |   ✅   |       ✅        |       |            |                       |
+|     Doujinshi.info |           |        |   ✅   |       ✅        |       |            |                       |
 |              Kaize |           | ✅[^6]  |   ✅   |       ✅        |       |            |        MALXML         |
 |              Kitsu |           |   ✅    |   ✅   |       ✅        |       |            |        MALXML         |
 |           MangaDex |           |   ✅    |   ✅   |       ✅        |       |            |                       |
@@ -187,19 +193,19 @@ Before you can use hikaru-aegis, you need to install the following:
 
 * Python 3.10 or higher, recommended to install 3.11 instead as it is the only
   version that is fully tested and supported.
-* Keyring daemon/service/agent available in your system, such as
-  [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring) (or related
-  keyring daemon for your desktop environment) for Linux,
-  [Keychain](https://www.funtoo.org/Keychain) for macOS, or
-  [Windows Credential Manager](https://support.microsoft.com/en-us/windows/accessing-credential-manager-1b5c916a-6a16-889f-8581-fc16e8165ac0)
-  for Windows. Required IF you want to use hikaru-aegis locally, otherwise
-  you can use hikaru-aegis in a CI/CD environment (such as GitHub Actions) and
-  provide the secrets as environment variables.
 
 We also recommend installing the following for better experience:
 
 * [pipx](https://github.com/pypa/pipx) for installing hikaru-aegis
   without polluting your system and easily upgrade or uninstall it.
+* Keyring daemon/service/agent available in your system, such as
+  [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring) (or related
+  keyring daemon for your desktop environment) for Linux, or
+  [Windows Credential Manager](https://support.microsoft.com/en-us/windows/accessing-credential-manager-1b5c916a-6a16-889f-8581-fc16e8165ac0)
+  for Windows. Required IF you want to use hikaru-aegis locally, otherwise
+  you can use hikaru-aegis in a CI/CD environment (such as GitHub Actions) and
+  provide the secrets as environment variables. This is required to store your
+  Keepass kdbx password and does not want to pass Password via program args.
 
 After installing the above, you can install hikaru-aegis by running the
 following command:
