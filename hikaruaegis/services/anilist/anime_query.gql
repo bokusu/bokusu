@@ -19,6 +19,7 @@ query($name: String!){
 }
 
 fragment mediaListEntry on MediaList{
+  id
   mediaId
   status
   progress
@@ -26,7 +27,7 @@ fragment mediaListEntry on MediaList{
   notes
   priority
   hiddenFromStatusLists
-  customLists
+  customLists(asArray: true)
   advancedScores
   startedAt{
     year
