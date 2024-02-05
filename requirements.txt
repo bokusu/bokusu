@@ -11,6 +11,6 @@ keyring
 poli-enum
 pwinput
 pykeepass
-python-box[all]~=7.0
+python-box[all]~=7.1
 slugify
 typer[all]
