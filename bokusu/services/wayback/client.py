@@ -5,7 +5,7 @@ from rich import print as rprint
 from waybackpy import WaybackMachineSaveAPI as SaveApi
 from waybackpy.exceptions import MaximumSaveRetriesExceeded as MaxRetries
 
-from hikaruaegis.core.const import USER_AGENT
+from bokusu.core.const import USER_AGENT
 
 
 class WaybackClient:

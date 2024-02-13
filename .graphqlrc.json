@@ -4,14 +4,14 @@
         "anilist": {
             "schema": "https://graphql.anilist.co/",
             "documents": [
-                "./hikaruaegis/anilist/anime_query.gql",
-                "./hikaruaegis/anilist/manga_query.gql"
+                "./bokusu/anilist/anime_query.gql",
+                "./bokusu/anilist/manga_query.gql"
             ]
         },
         "annict": {
             "schema": "https://api.annict.com/graphql",
             "documents": [
-                "./hikaruaegis/annict/annict.gql"
+                "./bokusu/annict/annict.gql"
             ],
             "extensions": {
                 "headers": {
@@ -22,19 +22,19 @@
         "kitsu": {
             "schema": "https://kitsu.io/api/graphql",
             "documents": [
-                "./hikaruaegis/kitsu/*.gql"
+                "./bokusu/kitsu/*.gql"
             ]
         },
         "notify": {
             "schema": "https://notify.moe/graphql",
             "documents": [
-                "./hikaruaegis/notify/*.gql"
+                "./bokusu/notify/*.gql"
             ]
         },
         "livechart": {
             "schema": "https://www.livechart.me/graphql",
             "documents": [
-                "./hikaruaegis/livechart/*.gql"
+                "./bokusu/livechart/*.gql"
             ]
         }
     }

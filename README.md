@@ -1,4 +1,4 @@
-# hikaru-aegis
+# Bokusu
 
 Easily backups your media lists from 17 sites and counting with async
 compability in mind.
@@ -11,7 +11,7 @@ compability in mind.
 
 ## Supported Sites
 
-<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD013 MD033 -->
 <table>
   <tr>
     <td align="center"><a href="https://anilist.co"><img src="images/anilist.png" alt="AniList" width="100"></a></td>
@@ -118,7 +118,7 @@ compability in mind.
     <th>🏃</th>
     <td colspan="5">Requires bypassing security screening/captcha</td>
 </table>
-<!-- markdownlint-enable MD033 -->
+<!-- markdownlint-enable MD013 MD033 -->
 
 ### Planned for The Integration
 
@@ -145,10 +145,12 @@ see what we can do.
 
 ### Export File Interoperability
 
-Hikaru-Aegis offers multiple export file formats to choose from, so you can
+Bokusu offers multiple export file formats to choose from, so you can
 choose the one that is most suitable for your use case. In most cases, you
 only need MAL-flavored XML format so you can import it to other sites that
 support importing from MAL.
+
+<!-- markdownlint-disable MD013 MD033 -->
 
 |               Site | XML Plain | MALXML | JSON  | RYMSF YAML[^1] |  CSV  | Plain Text |   Reimportable[^2]    |
 | -----------------: | :-------: | :----: | :---: | :------------: | :---: | :--------: | :-------------------: |
@@ -170,9 +172,11 @@ support importing from MAL.
 |               VNDB |     ✅     |        |   ✅   |                |       |            |                       |
 |           WakuWaku |           |   ✅    |   ✅   |       ✅        |       |            |                       |
 
+<!-- markdownlint-enable MD013 MD033 -->
+
 [^1]: [Ryuuganime Media Save File format][rymsf] is experimental standardized
       schema format for media list backup. While it is not supported by any
-      sites yet, it does help `hikaru-aegis` to be able to convert between
+      sites yet, it does help Bokusu to be able to convert between
       different formats.
 [^2]: The site allows you to reimport the exported file back to the site.
 [^3]: Only user records will be exported as plain text for logging.
@@ -189,29 +193,29 @@ support importing from MAL.
 
 ## Requirements and Installations
 
-Before you can use hikaru-aegis, you need to install the following:
+Before you can use Bokusu, you need to install the following:
 
 * Python 3.10 or higher, recommended to install 3.11 instead as it is the only
   version that is fully tested and supported.
 
 We also recommend installing the following for better experience:
 
-* [pipx](https://github.com/pypa/pipx) for installing hikaru-aegis
+* [pipx](https://github.com/pypa/pipx) for installing Bokusu
   without polluting your system and easily upgrade or uninstall it.
 * Keyring daemon/service/agent available in your system, such as
   [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring) (or related
   keyring daemon for your desktop environment) for Linux, or
   [Windows Credential Manager](https://support.microsoft.com/en-us/windows/accessing-credential-manager-1b5c916a-6a16-889f-8581-fc16e8165ac0)
-  for Windows. Required IF you want to use hikaru-aegis locally, otherwise
-  you can use hikaru-aegis in a CI/CD environment (such as GitHub Actions) and
+  for Windows. Required IF you want to use Bokusu locally, otherwise
+  you can use Bokusu in a CI/CD environment (such as GitHub Actions) and
   provide the secrets as environment variables. This is required to store your
   Keepass kdbx password and does not want to pass Password via program args.
 
-After installing the above, you can install hikaru-aegis by running the
+After installing the above, you can install Bokusu by running the
 following command:
 
 ```bash
-pip install hikaru-aegis
+pip install bokusu
 ```
 
 > [!NOTE]
@@ -235,53 +239,61 @@ dependencies, you may need to install the following packages first:
 
 ## Setup and Configuration
 
-To use hikaru-aegis, you need to configure it first. You can do so by running
+To use Bokusu, you need to configure it first. You can do so by running
 the following command:
 
 ```bash
-hikaruaegis setup
+bokusu setup
 ```
 
 This will ask you to enter your credentials for each site you want to backup,
 and create a configuration file for you. The configuration file will be stored
-in your user directory (`~/.hikaruaegis`), and will be used by hikaru-aegis to
+in your user directory (`~/.bokusu`), and will be used by bokusu to
 authenticate you when you run the backup command.
 
 Follow the instructions on the screen to complete the setup, or visit the
-[wiki](https://github.com/Animanga-Initiative/hikaru-aegis/wiki) for more
+[wiki](https://github.com/Animanga-Initiative/bokusu/wiki) for more
 information.
 
 If you want to change your credentials, you can run following command:
 
 ```bash
-hikaruaegis accounts --edit
+bokusu accounts --edit
 # If you're geeky enough, you can use following command instead to launch via
 # Keepass
-hikaruaegis accounts --edit-keepass
+bokusu accounts --edit-keepass
 ```
 
 Or, if you want to change your configuration, you can run the following command:
 
 ```bash
-hikaruaegis config --edit
+bokusu config --edit
 ```
 
 ## Usage
 
-`hikaru-aegis` is a command-line tool, so you need to run it in a terminal.
+Bokusu is a command-line tool, so you need to run it in a terminal.
+
+You can also call the program using `box` as an alias for `bokusu` if you want
+to save some keystrokes... but it's not recommended if you have [Box](https://box.com)
+(that one cloud storage service) CLI app installed in your system.
 
 ### Basic Usage
 
 ```bash
-hikaruaegis
+bokusu
+# or, if you explicitly set an alias for bokusu
+box
+# or
+python -m bokusu
 ```
 
 This will show you the help message and the available commands.
 
 ## License
 
-`hikaru-aegis` is licensed under [GPL Affero v3.0 or later (AGPL-3.0+)](LICENSE)
-due to heavy use of [AnimeAPI][aa] API for remapping IDs across sites.
+Bokusu is licensed under [GPL Affero v3.0 or later (AGPL-3.0+)](LICENSE)
+due to heavy dependency of [AnimeAPI][aa] API for remapping IDs across sites.
 
 We recommend you to use the program as-is and not integrating it to your other
 open source project/suite, since it will force your project to be licensed under
@@ -292,5 +304,4 @@ We are not a lawyer, so please consult your lawyer to make sure you are not
 violating the license.
 
 [aa]: https://animeapi.my.id
-[amab]: https://github.com/Animanga-Initiative/animeManga-autoBackup
 [rymsf]: https://github.com/ryuuganime/mediaSaveFile

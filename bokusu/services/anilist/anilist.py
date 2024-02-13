@@ -3,9 +3,9 @@ from typing import Literal, TypedDict
 import requests as req
 from traceback import print_exc
 
-from hikaruaegis.core.commons import read_resource
-from hikaruaegis.core.secrets import ANILIST_USERNAME, ANILIST_ACCESSTOKEN, ANILIST_REFRESHTOKEN, ANILIST_CLIENTID, ANILIST_CLIENTSECRET, ANILIST_REDIRECTURI, ANILIST_EXPIRESIN
-from hikaruaegis.core.folder import add_directory
+from bokusu.core.commons import read_resource
+from bokusu.core.secrets import ANILIST_USERNAME, ANILIST_ACCESSTOKEN, ANILIST_REFRESHTOKEN, ANILIST_CLIENTID, ANILIST_CLIENTSECRET, ANILIST_REDIRECTURI, ANILIST_EXPIRESIN
+from bokusu.core.folder import add_directory
 
 class GqlVariables(TypedDict):
     """GraphQL variables type"""

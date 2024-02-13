@@ -3,11 +3,11 @@
 import os
 from platform import system
 
-def get_hikaru_root() -> str:
+def get_box_root() -> str:
     """
-    Get the root directory of hikaruaegis.
+    Get the root directory of Bokusu.
 
-    On Windows, it should be %USERPROFILE%\\\\.hikaruaegis, but on POSIX, it should be ~/.hikaruaegis.
+    On Windows, it should be %USERPROFILE%\\\\.bokusu, but on POSIX, it should be ~/.bokusu.
     However, on CI/CD (GitHub Actions), it should be current repo directory.
 
     :return: The path to the root directory.
@@ -20,10 +20,10 @@ def get_hikaru_root() -> str:
         # check if the user profile directory exists
         if user_profile:
             # return the path to the root directory
-            return os.path.join(user_profile, ".hikaruaegis")
+            return os.path.join(user_profile, ".bokusu")
         else:
             # return the path to the root directory
-            return os.path.join(os.getcwd(), ".hikaruaegis")
+            return os.path.join(os.getcwd(), ".bokusu")
     else:
         if os.getenv("GITHUB_ACTIONS"):
             return os.getcwd()
@@ -31,7 +31,7 @@ def get_hikaru_root() -> str:
             # resolve the home directory
             home = os.path.expanduser("~")
             # return the path to the root directory
-            return os.path.join(home, ".hikaruaegis")
+            return os.path.join(home, ".bokusu")
 
 def add_directory(*path: str, name: str | None = None) -> str:
     """
@@ -44,7 +44,7 @@ def add_directory(*path: str, name: str | None = None) -> str:
     :return: Should return the path to the directory.
     :rtype: str
     """
-    target = os.path.join(get_hikaru_root(), *path)
+    target = os.path.join(get_box_root(), *path)
     if name:
         print(f"Creating directory for {name} on {target}...")
     else:

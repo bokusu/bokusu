@@ -1,9 +1,9 @@
 from typing import Literal
 from traceback import print_exc
 
-from hikaruaegis.malscraper.client import MALScraper
-from hikaruaegis.core.folder import add_directory
-from hikaruaegis.core.secrets import ANIMEPLANET_USERNAME
+from bokusu.malscraper.client import MALScraper
+from bokusu.core.folder import add_directory
+from bokusu.core.secrets import ANIMEPLANET_USERNAME
 
 
 def export_animeplanet(media_type: Literal["anime", "manga"]) -> bool:
