@@ -3,6 +3,8 @@
 import os
 from platform import system
 
+from bokusu.core.configs import BOKUSU_PATH
+
 def get_box_root() -> str:
     """
     Get the root directory of Bokusu.
@@ -23,13 +25,12 @@ def get_box_root() -> str:
             return os.path.join(user_profile, ".bokusu")
         # return the path to the root directory
         return os.path.join(os.getcwd(), ".bokusu")
-    else:
-        if os.getenv("GITHUB_ACTIONS"):
-            return os.getcwd()
-        # resolve the home directory
-        home = os.path.expanduser("~")
-        # return the path to the root directory
-        return os.path.join(home, ".bokusu")
+    if os.getenv("GITHUB_ACTIONS"):
+        return os.getcwd()
+    # resolve the home directory
+    home = os.path.expanduser("~")
+    # return the path to the root directory
+    return os.path.join(home, ".bokusu")
 
 def add_directory(*path: str, name: str | None = None) -> str:
     """
@@ -42,7 +43,8 @@ def add_directory(*path: str, name: str | None = None) -> str:
     :return: Should return the path to the directory.
     :rtype: str
     """
-    target = os.path.join(get_box_root(), *path)
+    root = BOKUSU_PATH or get_box_root()
+    target =os.path.join(root, *path)
     if name:
         print(f"Creating directory for {name} on {target}...")
     else:
