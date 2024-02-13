@@ -1,9 +1,9 @@
 from dataclasses import dataclass
 from datetime import datetime
-from enum import Enum
+from Enum import Enum
 from typing import Any
 
-from poli_enum.country import Country  # type: ignore
+from poli_Enum.country import Country  # type: ignore
 
 
 @dataclass
@@ -31,7 +31,7 @@ class MediaTitle:
 
 
 class MediaType(Enum):
-    """Media type enum, anime or manga"""
+    """Media type Enum, anime or manga"""
     ANIME = 'ANIME'
     MANGA = 'MANGA'
 
@@ -265,7 +265,7 @@ class MediaRank:
 
 
 class MediaListStatus(Enum):
-    """Media list watching/reading status enum."""
+    """Media list watching/reading status Enum."""
     CURRENT = 'CURRENT'
     """Currently watching/reading"""
     PLANNING = 'PLANNING'
@@ -434,7 +434,7 @@ class PageInfo:
     """The count of items on each page"""
 
 
-class MediaRelation(enum):
+class MediaRelation(Enum):
     """Type of relation media has to its parent"""
     ADAPTATION = 'ADAPTATION'
     """An adaptation of this media into a different format"""
@@ -657,8 +657,8 @@ class MediaListOptions:
     mangaList: dict[str, Any] | None = None
     """List of manga lists custom lists the user has created"""
 
-class ModRole(enum):
-    """Mod role enums"""
+class ModRole(Enum):
+    """Mod role Enums"""
     ADMIN = 'ADMIN'
     """An AniList administrator"""
     LEAD_DEVELOPER = 'LEAD_DEVELOPER'
