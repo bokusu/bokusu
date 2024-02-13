@@ -418,6 +418,115 @@ class Media:
 
 
 @dataclass
+class PageInfo:
+    """Information about pagination in a connection."""
+    total: int | None = None
+    """The total number of items"""
+    perPage: int | None = None
+    """The count of items on each page"""
+    currentPage: int | None = None
+    """The current page"""
+    lastPage: int | None = None
+    """The last page"""
+    hasNextPage: bool | None = None
+    """If there are any more pages"""
+    perPage: int | None = None
+    """The count of items on each page"""
+
+
+class MediaRelation(enum):
+    """Type of relation media has to its parent"""
+    ADAPTATION = 'ADAPTATION'
+    """An adaptation of this media into a different format"""
+    PREQUEL = 'PREQUEL'
+    """Released before the relation"""
+    SEQUEL = 'SEQUEL'
+    """Released after the relation"""
+    PARENT = 'PARENT'
+    """The media a side story is from"""
+    SIDE_STORY = 'SIDE_STORY'
+    """A side story of the parent media"""
+    CHARACTER = 'CHARACTER'
+    """Shares at least one character"""
+    SUMMARY = 'SUMMARY'
+    """A shortened and summarized version"""
+    ALTERNATIVE = 'ALTERNATIVE'
+    """An alternative version of the same media"""
+    SPIN_OFF = 'SPIN_OFF'
+    """An alternative version of the media with a different primary focus"""
+    OTHER = 'OTHER'
+    """Other"""
+    SOURCE = 'SOURCE'
+    """Version 2 only. The source material the media was adapted from"""
+    COMPILATION = 'COMPILATION'
+    """Version 2 only."""
+    CONTAINS = 'CONTAINS'
+    """Version 2 only."""
+
+class CharacterRole(Enum):
+    """The role of the character in the media"""
+    MAIN = 'MAIN'
+    """The main character"""
+    SUPPORTING = 'SUPPORTING'
+    """A supporting character"""
+    BACKGROUND = 'BACKGROUND'
+    """A background character"""
+
+@dataclass
+class MediaEdge:
+    """An edge in a connection"""
+    isMainStudio: bool
+    """If the studio is the main animation studio of the media (For Studio->MediaConnection field only)"""
+    node: Media | None = None
+    """The item at the end of the edge"""
+    id: int | None = None
+    """The id of the connection"""
+    relationType: MediaRelation | None = None
+    """The type of relation to the parent model"""
+    characters: list[dict[str, Any]] | None = None
+    """The characters in the media"""
+    characterRole: CharacterRole | None = None
+    """The role of the character in the media"""
+    characterName: str | None = None
+    """Media specific character name"""
+    roleNotes: str | None = None
+    """Notes regarding the VA's role for the character"""
+    dubGroup: str | None = None
+    """Used for grouping roles where multiple dubs exist for the same language. Either dubbing company name or language variant"""
+    staffRole: str | None = None
+    """The role of the staff member in the production of the media"""
+    voiceActors: list[dict[str, Any]] | None = None
+    """The voice actors of the character"""
+    voiceActorRoles: list[dict[str, Any]] | None = None
+    """Voice actor roles for the character"""
+    favouriteOrder: int | None = None
+    """The order the media should be displayed from the users favourites"""
+
+@dataclass
+class MediaConnection:
+    """A connection for media"""
+    edges: list[MediaEdge] | None = None
+    """The edges of the connection"""
+    nodes: list[Media] | None = None
+    """The nodes of the connection"""
+    pageInfo: dict[str, Any] | None = None
+    """The pagination information"""
+
+@dataclass
+class Favourites:
+    """User's favourites anime, manga, characters, staff & studios"""
+    anime: MediaConnection | None = None
+    """The user's favourite anime"""
+    manga: MediaConnection | None = None
+    """The user's favourite manga"""
+    characters: dict[str, Any] | None = None
+    """The user's favourite characters"""
+    staff: dict[str, Any] | None = None
+    """The user's favourite staff"""
+    studios: dict[str, Any] | None = None
+    """The user's favourite studios"""
+
+@dataclass
 class UserAvatar:
     """A user's avatars"""
     large: str | None = None
@@ -451,6 +560,92 @@ class UserOptions:
 
 
 @dataclass
+class UserBaseStatistic:
+    """A user's statistics"""
+    count: int
+    meanScore: float
+    minutesWatched: int
+    chaptersRead: int
+
+class UserBaseStatisticNode(UserBaseStatistic):
+    """A user's statistics for a specific type"""
+    mediaIds: list[int]
+
+class UserFormatStatistic(UserBaseStatisticNode):
+    """A user's statistics for a specific format"""
+    format: MediaFormat | None = None
+
+class UserStatusStatistic(UserBaseStatisticNode):
+    """A user's statistics for a specific status"""
+    status: MediaListStatus | None = None
+
+class UserScoreStatistic(UserBaseStatisticNode):
+    """A user's statistics for a specific score"""
+    score: int | None = None
+
+class UserLengthStatistic(UserBaseStatisticNode):
+    """A user's statistics for a specific length"""
+    length: str | None = None
+
+class UserReleaseYearStatistic(UserBaseStatisticNode):
+    """A user's statistics for a specific release year"""
+    releaseYear: int | None = None
+
+class UserStartYearStatistic(UserBaseStatisticNode):
+    """A user's statistics for a specific start year"""
+    startYear: int | None = None
+
+class UserGenreStatistic(UserBaseStatisticNode):
+    """A user's statistics for a specific genre"""
+    genre: str | None = None
+
+class UserTagStatistic(UserBaseStatisticNode):
+    """A user's statistics for a specific tag"""
+    tag: MediaTag | None = None
+
+class UserCountryStatistic(UserBaseStatisticNode):
+    """A user's statistics for a specific country"""
+    country: CountryCode | None = None
+
+class UserVoiceActorStatistic(UserBaseStatisticNode):
+    """A user's statistics for a specific voice actor"""
+    characterIds: list[int]
+    voiceActor: dict[str, Any] | None = None
+
+class UserStaffStatistic(UserBaseStatisticNode):
+    """A user's statistics for a specific staff member"""
+    staff: dict[str, Any] | None = None
+
+class UserStudioStatistic(UserBaseStatisticNode):
+    """A user's statistics for a specific studio"""
+    studio: dict[str, Any] | None = None
+
+class UserStatistics(UserBaseStatistic):
+    standardDeviation: float
+    episodesWatched: int
+    volumesRead: int
+    formats: list[UserFormatStatistic] | None = None
+    statuses: list[UserStatusStatistic] | None = None
+    scores: list[UserScoreStatistic] | None = None
+    lengths: list[UserLengthStatistic] | None = None
+    releaseYears: list[UserReleaseYearStatistic] | None = None
+    startYears: list[UserStartYearStatistic] | None = None
+    genres: list[UserGenreStatistic] | None = None
+    tags: list[UserTagStatistic] | None = None
+    countries: list[UserCountryStatistic] | None = None
+    voiceActors: list[UserVoiceActorStatistic] | None = None
+    staff: list[UserStaffStatistic] | None = None
+    studios: list[UserStudioStatistic] | None = None
+
+@dataclass
+class UserStatisticTypes:
+    """The user's anime & manga statistics"""
+    anime: UserStatistics | None = None
+    """The user's anime statistics"""
+    manga: UserStatistics | None = None
+    """The user's manga statistics"""
+
+@dataclass
 class MediaListOptions:
     """The user's media list options"""
     scoreFormat: str | None = None
@@ -462,6 +657,48 @@ class MediaListOptions:
     mangaList: dict[str, Any] | None = None
     """List of manga lists custom lists the user has created"""
 
+class ModRole(enum):
+    """Mod role enums"""
+    ADMIN = 'ADMIN'
+    """An AniList administrator"""
+    LEAD_DEVELOPER = 'LEAD_DEVELOPER'
+    """A head developer of AniList"""
+    DEVELOPER = 'DEVELOPER'
+    """An AniList developer"""
+    LEAD_COMMUNITY = 'LEAD_COMMUNITY'
+    """A lead community moderator"""
+    COMMUNITY = 'COMMUNITY'
+    """A community moderator"""
+    DISCORD_COMMUNITY = 'DISCORD_COMMUNITY'
+    """A discord community moderator"""
+    LEAD_ANIME_DATA = 'LEAD_ANIME_DATA'
+    """A lead anime data moderator"""
+    ANIME_DATA = 'ANIME_DATA'
+    """An anime data moderator"""
+    LEAD_MANGA_DATA = 'LEAD_MANGA_DATA'
+    """A lead manga data moderator"""
+    MANGA_DATA = 'MANGA_DATA'
+    """A manga data moderator"""
+    LEAD_SOCIAL_MEDIA = 'LEAD_SOCIAL_MEDIA'
+    """A lead social media moderator"""
+    SOCIAL_MEDIA = 'SOCIAL_MEDIA'
+    """A social media moderator"""
+    RETIRED = 'RETIRED'
+    """A retired moderator"""
+    CHARACTER_DATA = 'CHARACTER_DATA'
+    """A character data moderator"""
+    STAFF_DATA = 'STAFF_DATA'
+    """A staff data moderator"""
+
+@dataclass
+class UserPreviousName:
+    """A user's previous name"""
+    name: str
+    """The previous name of the user"""
+    createdAt: datetime | None = None
+    """When the user changed their name"""
+    updatedAt: datetime | None = None
+    """When the user changed their name"""
 
 @dataclass
 class User:
