@@ -1,6 +1,7 @@
 from json import dumps, loads
-from typing import Literal, TypedDict
+from typing import Literal, TypedDict, Any
 import requests as req
+import aiohttp
 from traceback import print_exc
 
 from bokusu.core.commons import read_resource
@@ -32,19 +33,16 @@ def load_anilist_gql(media_type: Literal["anime", "manga"],
     # return the dict with query and variables keys
     return {"query": gql_content, "variables": variables}
 
-
-def export_anilist(media_type: Literal["anime", "manga"]) -> bool:
+async def export_anilist(media_type: Literal["anime", "manga"]) -> tuple(dict[str, Any] | None, bool):
     """
     Export list from AniList
-
     :param media_type: Media type target
     :type media_type: Literal["anime", "manga"]
-
-    :return: True if successful, False if not
-    :rtype: bool
+    :return: Exported list, True if successful, False if not
+    :rtype: tuple[dict[str, Any] | None, bool]
     """
-    # create directory for export
     path = add_directory("backup", name="AniList")
+    """Path to save the exported list"""
 
     # create GraphQL variables
     variables: GqlVariables = {
@@ -53,6 +51,7 @@ def export_anilist(media_type: Literal["anime", "manga"]) -> bool:
 
     # create GraphQL variables dict
     gql_variables = load_anilist_gql(media_type, variables)
+    """GraphQL variables dict"""
 
     # create GraphQL headers
     headers = {
@@ -60,16 +59,18 @@ def export_anilist(media_type: Literal["anime", "manga"]) -> bool:
         "Accept": "application/json",
         "Authorization": f"Bearer {ANILIST_ACCESSTOKEN}",
     }
+    """GraphQL headers"""
 
     # export list
     try:
-        export = req.post("https://graphql.anilist.co",
-                          headers=headers,
-                          data=gql_variables)
-        export_json = loads(export.text)
-        with open(f"{path}/anilist_{media_type}.json", "w") as f:
-            f.write(dumps(export_json, indent=4))
-        return True
+        async with aiohttp.ClientSession() as session:
+            async with session.post("https://graphql.anilist.co",
+                                    headers=headers,
+                                    json=gql_variables) as export:
+                export_json = await export.json()
+                with open(f"{path}/anilist_{media_type}.json", "w") as f:
+                    f.write(dumps(export_json))
+                return export_json, True
     except Exception as _:
         print_exc()
-        return False
+        return None, False

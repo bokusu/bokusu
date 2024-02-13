@@ -1,6 +1,7 @@
 from typing import Literal
 
 import requests as req
+import aiohttp
 
 from bokusu.core.const import USER_AGENT
 
@@ -15,7 +16,18 @@ class MALScraper:
         self.origin = self.base_url
         self.referer = self.base_url + "/"
 
-    def export_list(self,
+    async def __aenter__(self):
+        """Async enter"""
+        return self
+
+    def __enter__(self):
+        """Throw error if not async"""
+        raise RuntimeError("Use async with")
+
+    async def __aexit__(self, exc_type, exc_value, traceback):
+        """Async exit"""
+
+    async def export_list(self,
                     username: str,
                     source: Literal[
                         "anilist",
@@ -25,7 +37,7 @@ class MALScraper:
                     media_type: Literal["anime", "manga"],
                     update_on_import: bool = True,
                     use_alt: bool = False,
-                    ) -> str:
+                    ) -> tuple[str, bool]:
         """
         Export list using malscraper from determined source
 
@@ -56,15 +68,17 @@ class MALScraper:
         if update_on_import:
             body["update_on_import"] = "on"
         # post with body sent as x-www-form-urlencoded
-        post = req.post(url=f"{self.base_url}/scrape",
-                        data=body,
-                        headers={
-                            "Origin": self.origin,
-                            "Referer": self.referer,
-                            "Content-Type": "application/x-www-form-urlencoded",
-                            "User-Agent": self.user_agent,})
 
-        text = post.text
-
-        return text
+        headers = {
+            "Origin": self.origin,
+            "Referer": self.referer,
+            "Content-Type": "application/x-www-form-urlencoded",
+            "User-Agent": self.user_agent,
+        }
+        async with aiohttp.ClientSession() as session:
+            async with session.post(f"{self.base_url}/scrape",
+                                    data=body,
+                                    headers=headers) as post:
+                text = await post.text()
+                return text
 
