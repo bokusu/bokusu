@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bokusu"
+authors = [
+    { name = "Sultan Iskandar Maulana", email = "hello@nattadasu.my.id" }
+]
+description = "Easily backups your media lists from 17 sites and counting with async compatibility in mind."
+requires-python = ">=3.10"
+license = { text = "AGPL-3.0-or-later" }
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Environment :: Console",
+    "Framework :: AsyncIO",
+    "Framework :: aiohttp",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Internet :: WWW/HTTP :: Site Management",
+    "Topic :: Multimedia",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Utilities",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed"
+]
+dynamic = [
+    "version",
+    "readme",
+    "dependencies"
+]
+keywords = ["backup", "media", "list", "async", "aiohttp", "anime", "manga", "lightnovel", "visualnovel", "music", "movie", "tv", "series", "drama", "game", "book", "novel", "comic", "webtoon", "manhwa"]
+
+[project.urls]
+Homepage = "https://github.com/Animanga-Initiative/bokusu"
+"Bug Tracker" = "https://github.com/Animanga-Initiative/bokusu/issues"
+Source = "https://github.com/Animanga-Initiative/bokusu"
+
+[project.scripts]
+bokusu = "bokusu.__main__:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "bokusu.__version__" }
+readme = { file = "README.md" }
+dependencies = { file = "requirements.txt" }
