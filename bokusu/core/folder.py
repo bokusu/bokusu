@@ -21,17 +21,15 @@ def get_box_root() -> str:
         if user_profile:
             # return the path to the root directory
             return os.path.join(user_profile, ".bokusu")
-        else:
-            # return the path to the root directory
-            return os.path.join(os.getcwd(), ".bokusu")
+        # return the path to the root directory
+        return os.path.join(os.getcwd(), ".bokusu")
     else:
         if os.getenv("GITHUB_ACTIONS"):
             return os.getcwd()
-        else:
-            # resolve the home directory
-            home = os.path.expanduser("~")
-            # return the path to the root directory
-            return os.path.join(home, ".bokusu")
+        # resolve the home directory
+        home = os.path.expanduser("~")
+        # return the path to the root directory
+        return os.path.join(home, ".bokusu")
 
 def add_directory(*path: str, name: str | None = None) -> str:
     """
@@ -56,5 +54,4 @@ def add_directory(*path: str, name: str | None = None) -> str:
     if name and not os.path.exists(os.path.join(target, name)):
         os.makedirs(os.path.join(target, name))
         return os.path.join(target, name)
-    else:
-        return target
+    return target
