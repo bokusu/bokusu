@@ -1,6 +1,8 @@
+<!-- markdownlint-disable MD028 -->
+
 # Bokusu
 
-Easily backups your media lists from 17 sites and counting with async
+Easily backups your media lists from 15 sites and counting with async
 compability in mind.
 
 > [!WARNING]
@@ -11,59 +13,66 @@ compability in mind.
 
 ## Supported Sites
 
-<!-- markdownlint-disable MD013 MD033 -->
+> [!IMPORTANT]
+>
+> The following sites has been thoroughly tested and supported from previous
+> project, [`animeManga-autoBackup`][amab]. The following sites are guaranteed
+> to be implemented and supported in the future.
+
+<!-- markdownlint-disable MD033 -->
 <table>
   <tr>
     <td align="center"><a href="https://anilist.co"><img src="images/anilist.png" alt="AniList" width="100"></a></td>
     <td align="center"><a href="https://anime-planet.com"><img src="images/animeplanet.png" alt="Anime-Planet" width="100"></a></td>
     <td align="center"><a href="https://annict.com"><img src="https://github.com/annict/annict-logo/blob/master/annict-logo-ver3.png?raw=true" alt="Annict" width="100"></a></td>
-    <td align="center"><a href="https://mangaupdates.com"><img src="https://www.mangaupdates.com/images/mascot.gif" alt="Baka-Updates Manga" width="100"></a></td>
     <td align="center"><a href="https://bgm.tv"><img src="images/bangumi.png" alt="Bangumi" width="100"></a></td>
+    <td align="center"><a href="https://kaize.io"><img src="images/kaize.png" alt="Kaize" width="100"></a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://anilist.co">AniList</a><br>🍥📔 / 🔐⌛</td>
     <td align="center"><a href="https://anime-planet.com">Anime-Planet</a><br>🍥📔 / 👥📸</td>
     <td align="center"><a href="https://annict.com">Annict</a><br>🍥 / 🔐📸⌛🌐</td>
-    <td align="center"><a href="https://mangaupdates.com">Baka-Updates Manga</a><br>📔 / 🔐📸</td>
     <td align="center"><a href="https://bgm.tv">Bangumi</a><br>🍥📔🎮📺 / 🔐📸🌐</td>
+    <td align="center"><a href="https://kaize.io">Kaize</a><br>🍥📔 / 👥📸🧼</td>
   </tr>
   <tr>
-    <td align="center"><a href="https://doujinshi.info"><img src="images/doujinshiinfo.png" alt="Doujinshi.info" width="100"></a></td>
-    <td align="center"><a href="https://kaize.io"><img src="images/kaize.png" alt="Kaize" width="100"></a></td>
     <td align="center"><a href="https://kitsu.io"><img src="images/kitsu.png" alt="Kitsu" width="100"></a></td>
     <td align="center"><a href="https://mangadex.org"><img src="images/mangadex.png" alt="MangaDex" width="100"></a></td>
+    <td align="center"><a href="https://mangaupdates.com"><img src="https://www.mangaupdates.com/images/mascot.gif" alt="MangaUpdates" width="100"></a></td>
     <td align="center"><a href="https://myanimelist.net"><img src="images/myanimelist.png" alt="MyAnimeList" width="100"></a></td>
+    <td align="center"><a href="https://notify.moe"><img src="images/notifymoe.png" alt="notify.moe" width="100"></a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://doujinshi.info">Doujinshi.info</a><br>📔 / 🔐📸</td>
-    <td align="center"><a href="https://kaize.io">Kaize</a><br>🍥📔 / 👥📸🧼</td>
     <td align="center"><a href="https://kitsu.io">Kitsu</a><br>🍥📔 / 🔐📸</td>
     <td align="center"><a href="https://mangadex.org">MangaDex</a><br>📔 / 🔐</td>
+    <td align="center"><a href="https://mangaupdates.com">MangaUpdates</a><br>📔 / 🔐📸</td>>
     <td align="center"><a href="https://myanimelist.net">MyAnimeList</a><br>🍥📔 / 👥🔐📸</td>
+    <td align="center"><a href="https://notify.moe">Notify</a><br>🍥 / 👥📸</td>
   </tr>
   <tr>
-    <td align="center"><a href="https://notify.moe"><img src="images/notifymoe.png" alt="notify.moe" width="100"></a></td>
     <td align="center"><a href="https://otakotaku.com"><img src="images/otakotaku.png" alt="Otak Otaku" width="100"></a></td>
     <td align="center"><a href="https://shikimori.one"><img src="images/shikimori.jpg" alt="Shikimori" width="100"></a></td>
     <td align="center"><a href="https://simkl.com"><img src="images/simkl.png" alt="Simkl" width="100"></a></td>
     <td align="center"><a href="https://trakt.tv"><img src="images/trakt.png" alt="Trakt" width="100"></a></td>
+    <td align="center"><a href="https://vndb.org"><img src="images/vndb.jpg" alt="VNDB" width="100"></a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://notify.moe">Notify</a><br>🍥 / 👥📸</td>
     <td align="center"><a href="https://otakotaku.com">Otak Otaku</a><br>🍥 / 👥📸🌐</td>
     <td align="center"><a href="https://shikimori.one">Shikimori</a><br>🍥📔 / 🔐📸🌐</td>
     <td align="center"><a href="https://simkl.com">SIMKL</a><br>🍥📺🎬 / 🔐📸</td>
     <td align="center"><a href="https://trakt.tv">Trakt</a><br>📺🎬 / 🔐📸⌛</td>
-  </tr>
-  <tr>
-    <td colspan="3" align="center"><a href="https://vndb.org"><img src="images/vndb.jpg" alt="VNDB" width="100"></a></td>
-    <td colspan="2" align="center"><a href="https://thewakuwaku.com"><img src="images/wakuwaku.png" alt="WakuWaku" width="100"></a></td>
-  </tr>
-  <tr>
-    <td colspan="3" align="center"><a href="https://vndb.org">VNDB</a><br>🎮 / 🔐📸</td>
-    <td colspan="2" align="center"><a href="https://thewakuwaku.com">WakuWaku</a><br>🍥 / 👥📸</td>
+    <td align="center"><a href="https://vndb.org">VNDB</a><br>🎮 / 🔐📸</td>
   </tr>
 </table>
+
+### Supported with Caveats
+
+> [!NOTE]
+>
+> The following sites are supported, but with some caveats. Please read the
+> notes for each site to understand the limitations.
+
+For now, there are no sites that are supported with caveats, yay!
 
 ### Legends
 
@@ -72,73 +81,67 @@ compability in mind.
     <th colspan="6" align="center">Supported Media Types</th>
   </tr>
   <tr>
-    <th>🍥</th>
-    <td>Anime</td>
-    <th>📔</th>
-    <td>Manga</td>
-    <th>🎮</th>
-    <td>Games</td>
+    <th>🍥</th><td>Anime</td>
+    <th>📔</th><td>Manga</td>
+    <th>🎮</th><td>Games</td>
   </tr>
   <tr>
-    <th>📺</th>
-    <td>TV Show</td>
-    <th>🎬</th>
-    <td>Movie</td>
-    <th>📖</th>
-    <td>Book</td>
+    <th>📺</th><td>TV Show</td>
+    <th>🎬</th><td>Movie</td>
+    <th>📖</th><td>Book</td>
   </tr>
   <tr>
-    <th>🎵</th>
-    <td>Music</td>
-    <th></th>
-    <td></td>
-    <th></th>
-    <td></td>
+    <th>🎵</th><td>Music</td>
+    <th></th><td></td>
+    <th></th><td></td>
   </tr>
   <tr>
     <th colspan="6" align="center">Site Information</th>
   </tr>
   <tr>
-    <th>👥</th>
-    <td>List/entry must public</td>
-    <th>🔐</th>
-    <td>Requires login</td>
-    <th>📸</th>
-    <td>Wayback Machine support</td>
+    <th>🔐</th><td>Requires login</td>
+    <th>👥</th><td>List/entry must public</td>
+    <th>🌐</th><td>Regionalized sites</td>
   </tr>
   <tr>
-    <th>🧼</th>
-    <td>No Explicit Content</td>
-    <th>⌛</th>
-    <td>Exports history log</td>
-    <th>🌐</th>
-    <td>Regionalized sites</td>
+    <th>📸</th><td>Wayback Machine support</td>
+    <th>⌛</th><td>Exports history log</td>
+    <th>🧼</th><td>No Explicit Content</td>
   </tr>
   <tr>
-    <th>🏃</th>
-    <td colspan="5">Requires bypassing security screening/captcha</td>
+    <th>📨</th><td>Have caveats</td>
+    <th>🏃</th><td>Requires bypassing security screening/captcha</td>
+    <th></th><td></td>
 </table>
 <!-- markdownlint-enable MD013 MD033 -->
 
-### Planned for The Integration
+### Planned for The Integrations
 
 > [!NOTE]
 >
 > The following sites are planned to be integrated in the future, but not
 > guaranteed to be implemented due some known issues or limitations.
 
+* [ ] [aniDB](https://anidb.net) &mdash; 🍥 / 🔐📨\
+  Due to limited UDP API commands, `bokusu` will only be able to send an
+  export request and read your mail to check if the export is ready. You need
+  to manually download the export file from the mail every 2 weeks.
 * [ ] [aniSearch](https://anisearch.com) &mdash; 🍥📔📺🎬 / 👥🌐🏃
+* [ ] [Doujinshi.info](https://doujinshi.info) &mdash; 📔 / 🔐📸
 * [ ] [Goodreads](https://goodreads.com) &mdash; 📖 / 👥⌛📸
 * [ ] [IMDb](https://imdb.com) &mdash; 📺🎬 / 👥📸🏃
 * [ ] [Kinopoisk](https://kinopoisk.ru) &mdash; 📺🎬 / 👥🌐📸
 * [ ] [Kinorium](https://en.kinorium.com) &mdash; 📺🎬 / 👥🌐📸
-* [ ] [Last.fm](https://last.fm) &mdash; 🎵 / ⌛📸
-* [ ] [LiveChart.me](https://livechart.me) &mdash; 🍥 / 🏃
+* [ ] [Kurozora](https://kurozora.app) (former Aozora) &mdash; 🍥📔🎮 / 🔐📸
+* [ ] [Last.fm](https://last.fm) &mdash; 🎵 / 🔐⌛📸
+* [ ] [ListenBrainz](https://listenbrainz.org) &mdash; 🎵 / 🔐⌛📸
+* [ ] [LiveChart.me](https://livechart.me) &mdash; 🍥 / 🔐🏃
 * [ ] [MyDramaList](https://mydramalist.com) &mdash; 📺🎬 / 👥📸
 * [ ] [MyShows](https://en.myshows.me) &mdash; 📺🎬 / 👥🌐📸
 * [ ] [Nautiljon](https://nautiljon.com) &mdash; 🍥📔📺🎬 / 👥🌐📸🏃
 * [ ] [RAWG](https://rawg.io) &mdash; 🎮 / 👥
 * [ ] [The Movie Database](https://themoviedb.org) &mdash; 📺🎬 / 📸
+* [ ] [WakuWaku](https://thewakuwaku.com) &mdash; 🍥 / 👥📸
 
 If you want to see a site that is not listed here, please open an issue and we'll
 see what we can do.
@@ -152,25 +155,23 @@ support importing from MAL.
 
 <!-- markdownlint-disable MD013 MD033 -->
 
-|               Site | XML Plain | MALXML | JSON  | RYMSF YAML[^1] |  CSV  | Plain Text |   Reimportable[^2]    |
-| -----------------: | :-------: | :----: | :---: | :------------: | :---: | :--------: | :-------------------: |
-|            AniList |           |   ✅    |   ✅   |       ✅        |       |   ✅[^3]    |   MALXML, JSON[^4]    |
-|       Anime-Planet |           |   ✅    |   ✅   |       ✅        |       |            |        MALXML         |
-|             Annict |           | ⭕[^5]  |   ✅   |     ⭕[^5]      |       |   ✅[^3]    |                       |
-| Baka-Updates Manga |           |        |       |                |   ✅   |            |                       |
-|            Bangumi |           |        |   ✅   |       ✅        |       |            |                       |
-|     Doujinshi.info |           |        |   ✅   |       ✅        |       |            |                       |
-|              Kaize |           | ✅[^6]  |   ✅   |       ✅        |       |            |        MALXML         |
-|              Kitsu |           |   ✅    |   ✅   |       ✅        |       |            |        MALXML         |
-|           MangaDex |           |   ✅    |   ✅   |       ✅        |       |            |                       |
-|        MyAnimeList |           |   ✅    |   ✅   |       ✅        |       |            |        MALXML         |
-|             Notify |           |   ✅    |   ✅   |       ✅        |   ✅   |     ✅      |      MALXML[^7]       |
-|         Otak Otaku |           |   ✅    |   ✅   |       ✅        |       |            |        MALXML         |
-|          Shikimori |           |   ✅    |   ✅   |       ✅        |       |            |     MALXML, JSON      |
-|              SIMKL |           |   ✅    |   ✅   |       ✅        |       |            | MALXML[^7], JSON, CSV |
-|              Trakt |           |        |   ✅   |                |       |   ✅[^3]    |                       |
-|               VNDB |     ✅     |        |   ✅   |                |       |            |                       |
-|           WakuWaku |           |   ✅    |   ✅   |       ✅        |       |            |                       |
+|         Site |  XML  | MALXML | JSON  | RYMSF YAML[^1] |  CSV  | Plain Text |   Reimportable[^2]    |
+| -----------: | :---: | :----: | :---: | :------------: | :---: | :--------: | :-------------------: |
+|      AniList |       |   ✅    |   ✅   |       ✅        |       |   ✅[^3]    |   MALXML, JSON[^4]    |
+| Anime-Planet |       |   ✅    |   ✅   |       ✅        |       |            |        MALXML         |
+|       Annict |       | ⭕[^5]  |   ✅   |     ⭕[^5]      |       |   ✅[^3]    |                       |
+|      Bangumi |       |        |   ✅   |       ✅        |       |            |                       |
+|        Kaize |       | ✅[^6]  |   ✅   |       ✅        |       |            |        MALXML         |
+|        Kitsu |       |   ✅    |   ✅   |       ✅        |       |            |        MALXML         |
+|     MangaDex |       |   ✅    |   ✅   |       ✅        |       |            |                       |
+| MangaUpdates |       |        |       |                |   ✅   |            |                       |
+|  MyAnimeList |       |   ✅    |   ✅   |       ✅        |       |            |        MALXML         |
+|       Notify |       |   ✅    |   ✅   |       ✅        |   ✅   |     ✅      |      MALXML[^7]       |
+|   Otak Otaku |       |   ✅    |   ✅   |       ✅        |       |            |        MALXML         |
+|    Shikimori |       |   ✅    |   ✅   |       ✅        |       |            |     MALXML, JSON      |
+|        SIMKL |       |   ✅    |   ✅   |       ✅        |       |            | MALXML[^7], JSON, CSV |
+|        Trakt |       |        |   ✅   |                |       |   ✅[^3]    |                       |
+|         VNDB |   ✅   |        |   ✅   |                |       |            |                       |
 
 <!-- markdownlint-enable MD013 MD033 -->
 
@@ -220,22 +221,26 @@ pip install bokusu
 
 > [!NOTE]
 >
-> * Replace `pip` with `pipx` if you are using pipx.
+> * Replace `pip` with `pipx` if you mainly use `pipx` to install executables.
 > * Depending on your system, you may need to use `pip3` instead of `pip`.
-> * If `pip` is reported as not found, add `python -m` (or `python3 -m` in some
+> * If `pip` is reported as not found, add `python3 -m` (or `python -m` in some
 >  systems) before `pip` in the command above.
 
-If during installation you may encounter an error related to building the
-dependencies, you may need to install the following packages first:
-
-* Linux and macOS:
-  * `python3-dev` (or `python3-devel` in some systems, or omit `3` if the system
-    only has Python 3)
-  * `build-essential` (or `gcc` and `g++` in some systems)
-* Windows:
-  * [Visual Studio Build Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019)
-    (or Visual Studio 2019 with C++ build tools)
-  * [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://visualstudio.microsoft.com/downloads/#microsoft-visual-c-redistributable-for-visual-studio-2019)
+> [!IMPORTANT]
+>
+> If during installation you may encounter an error related to building the
+> dependencies, you may need to install the following packages first:
+>
+> * Linux and macOS:
+>   * `python3-dev` (or `python3-devel` in some systems, or omit `3` if the
+>     system only has Python 3)
+>   * `build-essential` (or `gcc` and `g++` in some systems)
+> * Windows:
+>   * [Visual Studio Build Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019)
+>     (or Visual Studio 2019 with C++ build tools)\
+>     Installing above package may take a lot of space, so make sure you have
+>     enough space in your system.
+>   * [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://visualstudio.microsoft.com/downloads/#microsoft-visual-c-redistributable-for-visual-studio-2019)
 
 ## Setup and Configuration
 
@@ -305,3 +310,4 @@ violating the license.
 
 [aa]: https://animeapi.my.id
 [rymsf]: https://github.com/ryuuganime/mediaSaveFile
+[amab]: https://github.com/Animanga-Initiative/animeManga-autoBackup
