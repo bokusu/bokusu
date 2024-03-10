@@ -1,0 +1,130 @@
+"""
+This is the schema for the Livechart service.
+"""
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    singleAnime(
+        id: ID!
+    ): Anime
+
+    anime(
+        term: String!
+    ): AnimeConnection
+
+    viewer: Viewer
+}
+
+type Mutation {
+    upsertLibraryEntry(
+        animeId: ID!
+        attributes: LibraryEntryAttributes!
+        ratingScale: RatingScale
+    ): Boolean
+}
+
+type AnimeConnection {
+  nodes: [Anime]
+}
+
+type Anime {
+    id: String
+    databaseId: ID
+    romajiTitle: String
+    englishTitle: String
+    nativeTitle: String
+    alternativeTitles: [String]
+    poster: OnTheFlyImage
+    synopsis: AnimeSynopsis
+    startDate: DateTimeWithPrecision
+    aggregateRating: AggregateRating
+    tags: [ShallowTag]
+    nextEpisode: ShallowEpisode
+    anidbUrl: String
+    animePlanetUrl: String
+    anisearchUrl: String
+    malUrl: String
+}
+
+type OnTheFlyImage {
+    url: String
+}
+
+type AnimeSynopsis {
+    markdown: String
+}
+
+type ShallowTag {
+    id: ID
+    name: String
+    hidden: String
+}
+
+type AggregateRating {
+    count: Int
+    weightedValue: Float
+}
+
+type DateTimeWithPrecision {
+	value: ISO8601DateTime
+	precision: DateTimePrecision
+}
+
+type ShallowEpisode {
+    id: String
+    number: Int
+    label: String
+    airdate: ISO8601DateTime
+}
+
+type LibraryEntryAttributes {
+    status: LibraryEntryStatus
+    rating: Float
+    episodesWatched: Int
+    startedAt: ISO8601DateTime
+    finishedAt: ISO8601DateTime
+    rewatches: Int
+    notes: String
+}
+
+enum LibraryEntryStatus {
+    PLANNING
+    PAUSED
+    WATCHING
+    REWATCHING
+    CONSIDERING
+    DROPPED
+    COMPLETED
+    SKIPPING
+}
+
+# WIP
+enum RatingScale {
+    RATING_10
+}
+
+enum DateTimePrecision {
+    DATE_AND_TIME
+    DATE
+    MONTH_AND_YEAR
+    YEAR
+    NONE
+}
+
+enum TitleLanguage {
+    ROMAJI
+    NATIVE
+    ENGLISH
+}
+
+type Viewer {
+    username: String!
+}
+
+scalar ISO8601Date
+scalar ISO8601DateTime
+scalar TimeZoneName
