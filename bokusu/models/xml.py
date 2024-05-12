@@ -24,8 +24,9 @@ class Tag:
 
     tag: str
     text: str = ""
-    attributes: dict[str, str] = None
-    children: list["Tag"] = None
+    cdata: bool = False
+    attributes: dict[str, str] | None = None
+    children: list["Tag"] | None = None
     is_comment: bool = False
 
     def add_child(self, child: "Tag"):
@@ -36,14 +37,11 @@ class Tag:
         :return: None
         :rtype: None
         """
-
         if self.children is None:
             self.children = []
-
         self.children.append(child)
 
-    @staticmethod
-    def sanitize_text(text: str) -> str:
+    def sanitize_text(self, text: str) -> str:
         """
         Sanitize text.
         :param text: Text to sanitize.
@@ -52,8 +50,12 @@ class Tag:
         :rtype: str
         """
 
+        if self.cdata:
+            return f"<![CDATA[{text}]]>"
+
         return text.replace("&", "&amp;").replace("<", "&lt;")\
-            .replace(">", "&gt;").replace("\"", "&quot;").replace("'", "&apos;")
+            .replace(">", "&gt;").replace("\"", "&quot;").replace("'", "&apos;")\
+            .replace("\n", "&#10;").replace("\r", "&#13;").replace("\t", "&#9;")
 
     def to_string(self) -> str:
         """
@@ -63,18 +65,20 @@ class Tag:
         """
 
         attributes = ""
-        if self.attributes is not None:
+        if self.attributes:
             for k, v in self.attributes.items():
                 v = self.sanitize_text(v)
                 attributes += f'{k}="{v}" '
-            attributes = attributes.strip()
+        attributes = attributes.strip()
+        if attributes:
+            attributes = " " + attributes
 
         children = ""
-        if self.children is not None:
+        if self.children:
             children = "".join([child.to_string() for child in self.children])
 
         self.text = self.sanitize_text(self.text)
-        final = f"{self.tag} {attributes}>{self.text}{children}</{self.tag}"
+        final = f"{self.tag}{attributes}>{self.text}{children}</{self.tag}"
         if self.is_comment:
             return f"<!-- {final} -->"
         return f"<{final}>"
@@ -94,7 +98,7 @@ class XML:
 
     version: str = "1.0"
     encoding: str = "UTF-8"
-    children: list[Tag] = None
+    children: list[Tag] | None = None
 
     def add_child(self, child: Tag):
         """
@@ -104,10 +108,8 @@ class XML:
         :return: None
         :rtype: None
         """
-
         if self.children is None:
             self.children = []
-
         self.children.append(child)
 
     def to_string(self) -> str:
@@ -117,5 +119,7 @@ class XML:
         :rtype: str
         """
 
+        if not self.children:
+            return f'<?xml version="{self.version}" encoding="{self.encoding}"?>'
         children = "".join([child.to_string() for child in self.children])
         return f'<?xml version="{self.version}" encoding="{self.encoding}"?>{children}'
