@@ -66,12 +66,18 @@ class ExportType(Enum):
 class BaseMyStatus:
     """Stores general statistics and information about the user"""
 
+    user_export_type: ExportType
+    """The export type."""
     user_id: int | None = None
     """The user's ID."""
     user_name: str | None = None
     """The user's name."""
-    user_export_type: ExportType | None = None
-    """The export type."""
+    user_total_completed: int | None = None
+    """The total number of entries completed."""
+    user_total_onhold: int | None = None
+    """The total number of entries on hold."""
+    user_total_dropped: int | None = None
+    """The total number of entries dropped."""
 
 
 @dcls
@@ -79,17 +85,11 @@ class AnimeMyStatus(BaseMyStatus):
     """Stores general statistics and information about the user's anime list"""
 
     user_total_anime: int | None = None
-    """The total number of anime entries."""
+    """The total number of entries."""
     user_total_watching: int | None = None
-    """The total number of anime entries being watched."""
-    user_total_completed: int | None = None
-    """The total number of anime entries completed."""
-    user_total_on_hold: int | None = None
-    """The total number of anime entries on hold."""
-    user_total_dropped: int | None = None
-    """The total number of anime entries dropped."""
+    """The total number of entries being watched."""
     user_total_plantowatch: int | None = None
-    """The total number of anime entries in the plan to watch list."""
+    """The total number of entries in the plan to watch list."""
 
     @property
     def as_tag(self) -> Tag:
@@ -113,7 +113,7 @@ class AnimeMyStatus(BaseMyStatus):
             ("user_total_anime", str(self.user_total_anime or "")),
             ("user_total_watching", str(self.user_total_watching or "")),
             ("user_total_completed", str(self.user_total_completed or "")),
-            ("user_total_on_hold", str(self.user_total_on_hold or "")),
+            ("user_total_on_hold", str(self.user_total_onhold or "")),
             ("user_total_dropped", str(self.user_total_dropped or "")),
             ("user_total_plantowatch", str(self.user_total_plantowatch or "")),
         ]
@@ -129,17 +129,11 @@ class MangaMyStatus(BaseMyStatus):
     """Stores general statistics and information about the user's manga list"""
 
     user_total_manga: int | None = None
-    """The total number of manga entries."""
+    """The total number of entries."""
     user_total_reading: int | None = None
-    """The total number of manga entries being read."""
-    user_total_completed: int | None = None
-    """The total number of manga entries completed."""
-    user_total_on_hold: int | None = None
-    """The total number of manga entries on hold."""
-    user_total_dropped: int | None = None
-    """The total number of manga entries dropped."""
+    """The total number of entries being read."""
     user_total_plantoread: int | None = None
-    """The total number of manga entries in the plan to read list."""
+    """The total number of entries in the plan to read list."""
 
     @property
     def as_tag(self) -> Tag:
@@ -163,7 +157,7 @@ class MangaMyStatus(BaseMyStatus):
             ("user_total_manga", str(self.user_total_manga or "")),
             ("user_total_reading", str(self.user_total_reading or "")),
             ("user_total_completed", str(self.user_total_completed or "")),
-            ("user_total_on_hold", str(self.user_total_on_hold or "")),
+            ("user_total_on_hold", str(self.user_total_onhold or "")),
             ("user_total_dropped", str(self.user_total_dropped or "")),
             ("user_total_plantoread", str(self.user_total_plantoread or "")),
         ]

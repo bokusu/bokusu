@@ -6,6 +6,12 @@ Design a XML-like dataclass to create a XML file.
 
 from dataclasses import dataclass
 
+
+class XMLException(Exception):
+    """
+    XML Exception.
+    """
+
 @dataclass
 class Tag:
     """
@@ -28,6 +34,10 @@ class Tag:
     attributes: dict[str, str] | None = None
     children: list["Tag"] | None = None
     is_comment: bool = False
+
+    def __post_init__(self):
+        if self.text != "" and self.children:
+            raise XMLException("Text and children can't be together.")
 
     def add_child(self, child: "Tag"):
         """
@@ -53,9 +63,16 @@ class Tag:
         if self.cdata:
             return f"<![CDATA[{text}]]>"
 
-        return text.replace("&", "&amp;").replace("<", "&lt;")\
-            .replace(">", "&gt;").replace("\"", "&quot;").replace("'", "&apos;")\
-            .replace("\n", "&#10;").replace("\r", "&#13;").replace("\t", "&#9;")
+        return (
+            text.replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+            .replace('"', "&quot;")
+            .replace("'", "&apos;")
+            .replace("\n", "&#10;")
+            .replace("\r", "&#13;")
+            .replace("\t", "&#9;")
+        )
 
     def to_string(self) -> str:
         """
@@ -64,14 +81,14 @@ class Tag:
         :rtype: str
         """
 
-        attributes = ""
-        if self.attributes:
-            for k, v in self.attributes.items():
-                v = self.sanitize_text(v)
-                attributes += f'{k}="{v}" '
-        attributes = attributes.strip()
-        if attributes:
-            attributes = " " + attributes
+        attributes = (
+            " ".join(
+                f'{k}="{self.sanitize_text(v)}"' for k, v in self.attributes.items()
+            )
+            if self.attributes
+            else ""
+        )
+        attributes = f" {attributes}" if attributes else ""
 
         children = ""
         if self.children:
@@ -80,6 +97,7 @@ class Tag:
         self.text = self.sanitize_text(self.text)
         final = f"{self.tag}{attributes}>{self.text}{children}</{self.tag}"
         if self.is_comment:
+            final = final.replace("--", "&#45;&#45;")
             return f"<!-- {final} -->"
         return f"<{final}>"
 

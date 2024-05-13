@@ -1,4 +1,4 @@
-<!-- markdownlint-disable MD028 -->
+<!-- markdownlint-disable MD028 MD027 -->
 
 # Bokusu
 
@@ -203,14 +203,6 @@ We also recommend installing the following for better experience:
 
 * [pipx](https://github.com/pypa/pipx) for installing Bokusu
   without polluting your system and easily upgrade or uninstall it.
-* Keyring daemon/service/agent available in your system, such as
-  [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring) (or related
-  keyring daemon for your desktop environment) for Linux, or
-  [Windows Credential Manager](https://support.microsoft.com/en-us/windows/accessing-credential-manager-1b5c916a-6a16-889f-8581-fc16e8165ac0)
-  for Windows. Required IF you want to use Bokusu locally, otherwise
-  you can use Bokusu in a CI/CD environment (such as GitHub Actions) and
-  provide the secrets as environment variables. This is required to store your
-  Keepass kdbx password and does not want to pass Password via program args.
 
 After installing the above, you can install Bokusu by running the
 following command:
@@ -259,15 +251,6 @@ authenticate you when you run the backup command.
 Follow the instructions on the screen to complete the setup, or visit the
 [wiki](https://github.com/Animanga-Initiative/bokusu/wiki) for more
 information.
-
-If you want to change your credentials, you can run following command:
-
-```bash
-bokusu accounts --edit
-# If you're geeky enough, you can use following command instead to launch via
-# Keepass
-bokusu accounts --edit-keepass
-```
 
 Or, if you want to change your configuration, you can run the following command:
 

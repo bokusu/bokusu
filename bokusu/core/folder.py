@@ -3,7 +3,8 @@
 import os
 from platform import system
 
-from bokusu.core.configs import BOKUSU_PATH
+from bokusu.core.const import OVERRIDE_PATH
+
 
 def get_box_root() -> str:
     """
@@ -32,6 +33,7 @@ def get_box_root() -> str:
     # return the path to the root directory
     return os.path.join(home, ".bokusu")
 
+
 def add_directory(*path: str, name: str | None = None) -> str:
     """
     Creates a directory if it doesn't exist.
@@ -43,8 +45,8 @@ def add_directory(*path: str, name: str | None = None) -> str:
     :return: Should return the path to the directory.
     :rtype: str
     """
-    root = BOKUSU_PATH or get_box_root()
-    target =os.path.join(root, *path)
+    root = OVERRIDE_PATH or get_box_root()
+    target = os.path.join(root, *path)
     if name:
         print(f"Creating directory for {name} on {target}...")
     else:

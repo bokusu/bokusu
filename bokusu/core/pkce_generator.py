@@ -1,17 +1,19 @@
 """Module to generate PKCE codes"""
 
 from base64 import urlsafe_b64encode
+from dataclasses import dataclass
 from hashlib import sha256
 from secrets import token_urlsafe
-from dataclasses import dataclass
 
 
 class LengthError(ValueError):
     """Raised when length is not between 43 and 128 characters"""
 
+
 @dataclass
 class PkceCodes:
     """A class containing verifier and code challenge"""
+
     verifier: str
     code_challenge: str
 
@@ -42,7 +44,8 @@ class PkceGenerator:
         # Generate a random string for code verifier
         if length < 43 or length > 128:
             raise LengthError(
-                "Code verifier length must be between 43 and 128 characters")
+                "Code verifier length must be between 43 and 128 characters"
+            )
         verifier = token_urlsafe(length)
         return verifier[:length]
 
@@ -57,10 +60,9 @@ class PkceGenerator:
         :rtype: str
         """
         # Generate code challenge from code verifier using SHA-256
-        verifier_bytes = verifier.encode('ascii')
+        verifier_bytes = verifier.encode("ascii")
         sha256_hash = sha256(verifier_bytes).digest()
-        code_challenge = urlsafe_b64encode(
-            sha256_hash).rstrip(b'=').decode('utf-8')
+        code_challenge = urlsafe_b64encode(sha256_hash).rstrip(b"=").decode("utf-8")
         return code_challenge
 
     def get_codes(self) -> PkceCodes:
