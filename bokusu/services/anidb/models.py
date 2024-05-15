@@ -3,8 +3,9 @@ from enum import Enum
 from typing import Literal
 
 
-def convert_to_params(data: dict[str, str | int | bool | None],
-                      retain_bool: bool = False) -> str:
+def convert_to_params(
+    data: dict[str, str | int | bool | None], retain_bool: bool = False
+) -> str:
     """
     Convert a dataclass to a string params for AniDB to understand
 
@@ -39,6 +40,7 @@ class AniDBInvalidType(Exception):
 
 class AniDBResponseCode(Enum):
     """Enum of known AniDB response codes"""
+
     LOGIN_ACCEPTED = 200
     LOGIN_ACCEPTED_NEW_VERSION = 201
     LOGGED_OUT = 203
@@ -191,6 +193,7 @@ class AniDBResponseCode(Enum):
 @dataclass
 class AniDBResponse:
     """AniDB response dataclass"""
+
     return_code: AniDBResponseCode
     """AniDB response code"""
     return_string: str
@@ -225,7 +228,11 @@ class AniDBResponse:
         elif header[1].isdigit():
             retcode = int(header[1])
             tag = header[0]
-            if len(header) > 2 and header[2].isalnum() and (len(header[2]) >= 4 and len(header[2]) <= 8):
+            if (
+                len(header) > 2
+                and header[2].isalnum()
+                and (len(header[2]) >= 4 and len(header[2]) <= 8)
+            ):
                 additional_return_string = header[2]
                 retstring = " ".join(header[3:])
             else:
@@ -251,13 +258,14 @@ class AniDBResponse:
             retstring,
             tag,
             additional_return_string,
-            retdatsplit
+            retdatsplit,
         )
 
 
 @dataclass
 class AniDBAuth:
     """AniDB authentication dataclass"""
+
     user: str
     """AniDB username"""
     passwd: str
@@ -268,11 +276,33 @@ class AniDBAuth:
     """AniDB client"""
     clientver: int
     """AniDB client version"""
-    enc: Literal["ISO8859_1", "ISO8859_2", "ISO8859_4", "ISO8859_5",
-                 "ISO8859_7", "ISO8859_8", "ISO8859_9", "ISO8859_15", "KOI8_R",
-                 "ASCII", "UTF8", "UTF-16", "UnicodeBigUnmarked",
-                 "UnicodeLittleUnmarked", "Cp1250", "Cp1251", "Cp1252", "Cp1253",
-                 "Cp1254", "Cp1257", "UnicodeBig", "UnicodeLittle"] | None = "UTF8"
+    enc: (
+        Literal[
+            "ISO8859_1",
+            "ISO8859_2",
+            "ISO8859_4",
+            "ISO8859_5",
+            "ISO8859_7",
+            "ISO8859_8",
+            "ISO8859_9",
+            "ISO8859_15",
+            "KOI8_R",
+            "ASCII",
+            "UTF8",
+            "UTF-16",
+            "UnicodeBigUnmarked",
+            "UnicodeLittleUnmarked",
+            "Cp1250",
+            "Cp1251",
+            "Cp1252",
+            "Cp1253",
+            "Cp1254",
+            "Cp1257",
+            "UnicodeBig",
+            "UnicodeLittle",
+        ]
+        | None
+    ) = "UTF8"
     """AniDB encoding"""
     nat: bool = False
     """AniDB network address translation"""

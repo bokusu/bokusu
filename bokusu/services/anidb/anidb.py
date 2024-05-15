@@ -5,8 +5,7 @@ from typing import Literal
 
 import asyncudp  # type: ignore
 
-from bokusu.services.anidb.models import (AniDBAuth, AniDBResponse,
-                                          AniDBResponseCode)
+from bokusu.services.anidb.models import AniDBAuth, AniDBResponse, AniDBResponseCode
 
 
 class AniDB:
@@ -17,7 +16,7 @@ class AniDB:
         self.session = ""
 
     async def __aenter__(self):
-        self.socket = await asyncudp.create_socket(remote_addr=(self.host, self.port)) # type: ignore
+        self.socket = await asyncudp.create_socket(remote_addr=(self.host, self.port))  # type: ignore
         return self
 
     def __enter__(self):
@@ -29,7 +28,8 @@ class AniDB:
     async def __send_cmd(self, command: str) -> tuple[str, str]:
         if not self.socket:
             raise RuntimeError(
-                "Socket is not initialized, have you init class with async context?")
+                "Socket is not initialized, have you init class with async context?"
+            )
         logging.debug(f"Sending command {command}")
         await self.socket.sendto(command.encode("utf-8"))  # type: ignore
         get_resp, addr = await self.socket.recvfrom()  # type: ignore
@@ -109,7 +109,9 @@ class AniDB:
         :return: AniDB response dataclass
         :rtype: AniDBResponse
         """
-        get_resp, _ = await self.__send_cmd(f"NOTIFYGET s={self.session}&type={msgtype}&id={msgid}")
+        get_resp, _ = await self.__send_cmd(
+            f"NOTIFYGET s={self.session}&type={msgtype}&id={msgid}"
+        )
         return AniDBResponse.from_string(get_resp)
 
     async def _mylistexport(self, template: str = "xml") -> AniDBResponse:
@@ -119,7 +121,9 @@ class AniDB:
         :return: AniDB response dataclass
         :rtype: AniDBResponse
         """
-        get_resp, _ = await self.__send_cmd(f"MYLISTEXPORT template={template}&s={self.session}")
+        get_resp, _ = await self.__send_cmd(
+            f"MYLISTEXPORT template={template}&s={self.session}"
+        )
         return AniDBResponse.from_string(get_resp)
 
     # give each process a delay to prevent API violation

@@ -5,15 +5,27 @@ import aiohttp
 from traceback import print_exc
 
 from bokusu.core.commons import read_resource
-from bokusu.core.secrets import ANILIST_USERNAME, ANILIST_ACCESSTOKEN, ANILIST_REFRESHTOKEN, ANILIST_CLIENTID, ANILIST_CLIENTSECRET, ANILIST_REDIRECTURI, ANILIST_EXPIRESIN
+from bokusu.core.secrets import (
+    ANILIST_USERNAME,
+    ANILIST_ACCESSTOKEN,
+    ANILIST_REFRESHTOKEN,
+    ANILIST_CLIENTID,
+    ANILIST_CLIENTSECRET,
+    ANILIST_REDIRECTURI,
+    ANILIST_EXPIRESIN,
+)
 from bokusu.core.folder import add_directory
+
 
 class GqlVariables(TypedDict):
     """GraphQL variables type"""
+
     user: str
 
-def load_anilist_gql(media_type: Literal["anime", "manga"],
-                     variables: GqlVariables) -> dict[str, str | GqlVariables]:
+
+def load_anilist_gql(
+    media_type: Literal["anime", "manga"], variables: GqlVariables
+) -> dict[str, str | GqlVariables]:
     """
     Load GraphQL variables and return the dict
 
@@ -33,7 +45,10 @@ def load_anilist_gql(media_type: Literal["anime", "manga"],
     # return the dict with query and variables keys
     return {"query": gql_content, "variables": variables}
 
-async def export_anilist(media_type: Literal["anime", "manga"]) -> tuple(dict[str, Any] | None, bool):
+
+async def export_anilist(media_type: Literal["anime", "manga"]) -> tuple(
+    dict[str, Any] | None, bool
+):
     """
     Export list from AniList
     :param media_type: Media type target
@@ -64,9 +79,9 @@ async def export_anilist(media_type: Literal["anime", "manga"]) -> tuple(dict[st
     # export list
     try:
         async with aiohttp.ClientSession() as session:
-            async with session.post("https://graphql.anilist.co",
-                                    headers=headers,
-                                    json=gql_variables) as export:
+            async with session.post(
+                "https://graphql.anilist.co", headers=headers, json=gql_variables
+            ) as export:
                 export_json = await export.json()
                 with open(f"{path}/anilist_{media_type}.json", "w") as f:
                     f.write(dumps(export_json))

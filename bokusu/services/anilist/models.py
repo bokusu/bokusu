@@ -9,6 +9,7 @@ from poli_Enum.country import Country  # type: ignore
 @dataclass
 class FuzzyDate:
     """Date object that allows for incomplete date values (fuzzy)"""
+
     year: int | None = None
     """Year"""
     month: int | None = None
@@ -20,6 +21,7 @@ class FuzzyDate:
 @dataclass
 class MediaTitle:
     """The official titles of the media in various languages"""
+
     romaji: str | None = None
     """The romanization of the native language title"""
     english: str | None = None
@@ -32,57 +34,61 @@ class MediaTitle:
 
 class MediaType(Enum):
     """Media type Enum, anime or manga"""
-    ANIME = 'ANIME'
-    MANGA = 'MANGA'
+
+    ANIME = "ANIME"
+    MANGA = "MANGA"
 
 
 class MediaFormat(Enum):
     """The format the media was released in"""
-    TV = 'TV'
+
+    TV = "TV"
     """Anime broadcast on television"""
-    TV_SHORT = 'TV_SHORT'
+    TV_SHORT = "TV_SHORT"
     """Anime which are under 15 minutes in length and broadcast on television"""
-    MOVIE = 'MOVIE'
+    MOVIE = "MOVIE"
     """Anime movies with a theatrical release"""
-    SPECIAL = 'SPECIAL'
+    SPECIAL = "SPECIAL"
     """Special episodes that have been included in DVD/Blu-ray releases, picture dramas, pilots, etc"""
-    OVA = 'OVA'
+    OVA = "OVA"
     """Anime that have been released directly on DVD/Blu-ray without originally going through a theatrical release or television broadcast"""
-    ONA = 'ONA'
+    ONA = "ONA"
     """Anime that have been originally released online or are only available through streaming services."""
-    MUSIC = 'MUSIC'
+    MUSIC = "MUSIC"
     """Short anime released as a music video"""
-    MANGA = 'MANGA'
+    MANGA = "MANGA"
     """Professionally published manga with more than one chapter"""
-    NOVEL = 'NOVEL'
+    NOVEL = "NOVEL"
     """Written books released as a series of light novels"""
-    ONE_SHOT = 'ONE_SHOT'
+    ONE_SHOT = "ONE_SHOT"
     """Manga with just one chapter"""
 
 
 class MediaStatus(Enum):
     """The current releasing status of the media"""
-    FINISHED = 'FINISHED'
+
+    FINISHED = "FINISHED"
     """Has completed and is no longer being released"""
-    RELEASING = 'RELEASING'
+    RELEASING = "RELEASING"
     """Is currently releasing"""
-    NOT_YET_RELEASED = 'NOT_YET_RELEASED'
+    NOT_YET_RELEASED = "NOT_YET_RELEASED"
     """To be released at a later date"""
-    CANCELLED = 'CANCELLED'
+    CANCELLED = "CANCELLED"
     """Is not and will not be releasing"""
-    HIATUS = 'HIATUS'
+    HIATUS = "HIATUS"
     """Is currently paused from releasing and will resume at a later date"""
 
 
 class MediaSeason(Enum):
     """The season the media was initially released in"""
-    WINTER = 'WINTER'
+
+    WINTER = "WINTER"
     """Months December to February"""
-    SPRING = 'SPRING'
+    SPRING = "SPRING"
     """Months March to May"""
-    SUMMER = 'SUMMER'
+    SUMMER = "SUMMER"
     """Months June to August"""
-    FALL = 'FALL'
+    FALL = "FALL"
     """Months September to November"""
 
 
@@ -92,49 +98,52 @@ CountryCode = Country
 
 class MediaSource(Enum):
     """Source type the media was adapted from"""
-    ORIGINAL = 'ORIGINAL'
+
+    ORIGINAL = "ORIGINAL"
     """An original production not based of another work"""
-    MANGA = 'MANGA'
+    MANGA = "MANGA"
     """Asian comic book"""
-    LIGHT_NOVEL = 'LIGHT_NOVEL'
+    LIGHT_NOVEL = "LIGHT_NOVEL"
     """Written work published in volumes"""
-    VISUAL_NOVEL = 'VISUAL_NOVEL'
+    VISUAL_NOVEL = "VISUAL_NOVEL"
     """Video game driven primary by text and narrative"""
-    VIDEO_GAME = 'VIDEO_GAME'
+    VIDEO_GAME = "VIDEO_GAME"
     """Video game"""
-    OTHER = 'OTHER'
+    OTHER = "OTHER"
     """Other"""
-    NOVEL = 'NOVEL'
+    NOVEL = "NOVEL"
     """Written works not published in volumes"""
-    DOUJINSHI = 'DOUJINSHI'
+    DOUJINSHI = "DOUJINSHI"
     """Self-published works"""
-    ANIME = 'ANIME'
+    ANIME = "ANIME"
     """Japanese animation"""
-    WEB_NOVEL = 'WEB_NOVEL'
+    WEB_NOVEL = "WEB_NOVEL"
     """Written work published online"""
-    LIVE_ACTION = 'LIVE_ACTION'
+    LIVE_ACTION = "LIVE_ACTION"
     """Live action media such as movies or TV show"""
-    GAME = 'GAME'
+    GAME = "GAME"
     """Games excluding video games"""
-    COMIC = 'COMIC'
+    COMIC = "COMIC"
     """Comics excluding manga"""
-    MULTIMEDIA_PROJECT = 'MULTIMEDIA_PROJECT'
+    MULTIMEDIA_PROJECT = "MULTIMEDIA_PROJECT"
     """Multimedia project"""
-    PICTURE_BOOK = 'PICTURE_BOOK'
+    PICTURE_BOOK = "PICTURE_BOOK"
     """Picture book"""
 
 
 class MediaTrailerSite(Enum):
     """The site the trailer is hosted by"""
-    YOUTUBE = 'YOUTUBE'
+
+    YOUTUBE = "YOUTUBE"
     """Trailer hosted on Youtube"""
-    DAILYMOTION = 'DAILYMOTION'
+    DAILYMOTION = "DAILYMOTION"
     """Trailer hosted on Dailymotion"""
 
 
 @dataclass
 class MediaTrailer:
     """Media trailer or advertisement"""
+
     id: str | None = None
     """The trailer video id"""
     site: MediaTrailerSite | None = None
@@ -158,6 +167,7 @@ class MediaCoverImage:
 @dataclass
 class MediaTag:
     """A tag that describes a theme or element of the media"""
+
     id: int
     """The id of the tag"""
     name: str
@@ -181,6 +191,7 @@ class MediaTag:
 @dataclass
 class AiringSchedule:
     """Media Airing Schedule. NOTE: We only aim to guarantee that future airing data is present and accurate"""
+
     id: int
     """The id of the airing schedule item"""
     airingAt: datetime
@@ -196,14 +207,15 @@ class AiringSchedule:
 
 
 class ExternalLinkType(Enum):
-    INFO = 'INFO'
-    STREAMING = 'STREAMING'
-    SOCIAL = 'SOCIAL'
+    INFO = "INFO"
+    STREAMING = "STREAMING"
+    SOCIAL = "SOCIAL"
 
 
 @dataclass
 class MediaExternalLink:
     """An external link to another site related to the media or staff member"""
+
     id: int
     """The id of the external link"""
     url: str | None = None
@@ -225,6 +237,7 @@ class MediaExternalLink:
 @dataclass
 class MediaStreamingEpisode:
     """Data and links to legal streaming episodes on external sites"""
+
     title: str | None = None
     """Title of the episode"""
     thumbnail: str | None = None
@@ -237,15 +250,17 @@ class MediaStreamingEpisode:
 
 class MediaRankType(Enum):
     """The type of ranking"""
-    RATED = 'RATED'
+
+    RATED = "RATED"
     """Ranking based on the media's ratings/score"""
-    POPULAR = 'POPULAR'
+    POPULAR = "POPULAR"
     """Ranking based on the media's popularity"""
 
 
 @dataclass
 class MediaRank:
     """The rankinf of a media in particular time span and format compared to other media"""
+
     id: int
     """The id of the rank"""
     rank: int
@@ -266,23 +281,25 @@ class MediaRank:
 
 class MediaListStatus(Enum):
     """Media list watching/reading status Enum."""
-    CURRENT = 'CURRENT'
+
+    CURRENT = "CURRENT"
     """Currently watching/reading"""
-    PLANNING = 'PLANNING'
+    PLANNING = "PLANNING"
     """Planning to watch/read"""
-    COMPLETED = 'COMPLETED'
+    COMPLETED = "COMPLETED"
     """Finished watching/reading"""
-    DROPPED = 'DROPPED'
+    DROPPED = "DROPPED"
     """Stopped watching/reading before completing"""
-    PAUSED = 'PAUSED'
+    PAUSED = "PAUSED"
     """Paused watching/reading"""
-    REPEATING = 'REPEATING'
-    """Re-watching/reading"""""
+    REPEATING = "REPEATING"
+    """Re-watching/reading""" ""
 
 
 @dataclass
 class ScoreDistribution:
     """A user's list score distribution."""
+
     score: int | None = None
     amount: int | None = None
     """The amount of list entries with this score"""
@@ -291,6 +308,7 @@ class ScoreDistribution:
 @dataclass
 class StatusDistribution:
     """A user's list status distribution."""
+
     status: MediaListStatus | None = None
     amount: int | None = None
     """The amount of list entries with this status"""
@@ -299,6 +317,7 @@ class StatusDistribution:
 @dataclass
 class MediaStats:
     """A media's statistics."""
+
     scoreDistribution: list[ScoreDistribution] | None = None
     statusDistribution: list[StatusDistribution] | None = None
 
@@ -306,6 +325,7 @@ class MediaStats:
 @dataclass
 class Media:
     """Anime or Manga"""
+
     id: int
     """The id of the media"""
     idMal: int | None = None
@@ -420,6 +440,7 @@ class Media:
 @dataclass
 class PageInfo:
     """Information about pagination in a connection."""
+
     total: int | None = None
     """The total number of items"""
     perPage: int | None = None
@@ -436,45 +457,50 @@ class PageInfo:
 
 class MediaRelation(Enum):
     """Type of relation media has to its parent"""
-    ADAPTATION = 'ADAPTATION'
+
+    ADAPTATION = "ADAPTATION"
     """An adaptation of this media into a different format"""
-    PREQUEL = 'PREQUEL'
+    PREQUEL = "PREQUEL"
     """Released before the relation"""
-    SEQUEL = 'SEQUEL'
+    SEQUEL = "SEQUEL"
     """Released after the relation"""
-    PARENT = 'PARENT'
+    PARENT = "PARENT"
     """The media a side story is from"""
-    SIDE_STORY = 'SIDE_STORY'
+    SIDE_STORY = "SIDE_STORY"
     """A side story of the parent media"""
-    CHARACTER = 'CHARACTER'
+    CHARACTER = "CHARACTER"
     """Shares at least one character"""
-    SUMMARY = 'SUMMARY'
+    SUMMARY = "SUMMARY"
     """A shortened and summarized version"""
-    ALTERNATIVE = 'ALTERNATIVE'
+    ALTERNATIVE = "ALTERNATIVE"
     """An alternative version of the same media"""
-    SPIN_OFF = 'SPIN_OFF'
+    SPIN_OFF = "SPIN_OFF"
     """An alternative version of the media with a different primary focus"""
-    OTHER = 'OTHER'
+    OTHER = "OTHER"
     """Other"""
-    SOURCE = 'SOURCE'
+    SOURCE = "SOURCE"
     """Version 2 only. The source material the media was adapted from"""
-    COMPILATION = 'COMPILATION'
+    COMPILATION = "COMPILATION"
     """Version 2 only."""
-    CONTAINS = 'CONTAINS'
+    CONTAINS = "CONTAINS"
     """Version 2 only."""
+
 
 class CharacterRole(Enum):
     """The role of the character in the media"""
-    MAIN = 'MAIN'
+
+    MAIN = "MAIN"
     """The main character"""
-    SUPPORTING = 'SUPPORTING'
+    SUPPORTING = "SUPPORTING"
     """A supporting character"""
-    BACKGROUND = 'BACKGROUND'
+    BACKGROUND = "BACKGROUND"
     """A background character"""
+
 
 @dataclass
 class MediaEdge:
     """An edge in a connection"""
+
     isMainStudio: bool
     """If the studio is the main animation studio of the media (For Studio->MediaConnection field only)"""
     node: Media | None = None
@@ -502,9 +528,11 @@ class MediaEdge:
     favouriteOrder: int | None = None
     """The order the media should be displayed from the users favourites"""
 
+
 @dataclass
 class MediaConnection:
     """A connection for media"""
+
     edges: list[MediaEdge] | None = None
     """The edges of the connection"""
     nodes: list[Media] | None = None
@@ -512,9 +540,11 @@ class MediaConnection:
     pageInfo: dict[str, Any] | None = None
     """The pagination information"""
 
+
 @dataclass
 class Favourites:
     """User's favourites anime, manga, characters, staff & studios"""
+
     anime: MediaConnection | None = None
     """The user's favourite anime"""
     manga: MediaConnection | None = None
@@ -526,9 +556,11 @@ class Favourites:
     studios: dict[str, Any] | None = None
     """The user's favourite studios"""
 
+
 @dataclass
 class UserAvatar:
     """A user's avatars"""
+
     large: str | None = None
     """The avatar of user at its largest size"""
     medium: str | None = None
@@ -538,6 +570,7 @@ class UserAvatar:
 @dataclass
 class NotificationOption:
     """Notification option for a user"""
+
     type: str
     """The type of notification"""
     enabled: bool | None = None
@@ -547,6 +580,7 @@ class NotificationOption:
 @dataclass
 class UserOptions:
     """User options for the user"""
+
     titleLanguage: str | None = None
     """The language the user wants to see media titles in"""
     displayAdultContent: bool | None = None
@@ -562,63 +596,91 @@ class UserOptions:
 @dataclass
 class UserBaseStatistic:
     """A user's statistics"""
+
     count: int
     meanScore: float
     minutesWatched: int
     chaptersRead: int
 
+
 class UserBaseStatisticNode(UserBaseStatistic):
     """A user's statistics for a specific type"""
+
     mediaIds: list[int]
+
 
 class UserFormatStatistic(UserBaseStatisticNode):
     """A user's statistics for a specific format"""
+
     format: MediaFormat | None = None
+
 
 class UserStatusStatistic(UserBaseStatisticNode):
     """A user's statistics for a specific status"""
+
     status: MediaListStatus | None = None
+
 
 class UserScoreStatistic(UserBaseStatisticNode):
     """A user's statistics for a specific score"""
+
     score: int | None = None
+
 
 class UserLengthStatistic(UserBaseStatisticNode):
     """A user's statistics for a specific length"""
+
     length: str | None = None
+
 
 class UserReleaseYearStatistic(UserBaseStatisticNode):
     """A user's statistics for a specific release year"""
+
     releaseYear: int | None = None
+
 
 class UserStartYearStatistic(UserBaseStatisticNode):
     """A user's statistics for a specific start year"""
+
     startYear: int | None = None
+
 
 class UserGenreStatistic(UserBaseStatisticNode):
     """A user's statistics for a specific genre"""
+
     genre: str | None = None
+
 
 class UserTagStatistic(UserBaseStatisticNode):
     """A user's statistics for a specific tag"""
+
     tag: MediaTag | None = None
+
 
 class UserCountryStatistic(UserBaseStatisticNode):
     """A user's statistics for a specific country"""
+
     country: CountryCode | None = None
+
 
 class UserVoiceActorStatistic(UserBaseStatisticNode):
     """A user's statistics for a specific voice actor"""
+
     characterIds: list[int]
     voiceActor: dict[str, Any] | None = None
 
+
 class UserStaffStatistic(UserBaseStatisticNode):
     """A user's statistics for a specific staff member"""
+
     staff: dict[str, Any] | None = None
+
 
 class UserStudioStatistic(UserBaseStatisticNode):
     """A user's statistics for a specific studio"""
+
     studio: dict[str, Any] | None = None
+
 
 class UserStatistics(UserBaseStatistic):
     standardDeviation: float
@@ -637,17 +699,21 @@ class UserStatistics(UserBaseStatistic):
     staff: list[UserStaffStatistic] | None = None
     studios: list[UserStudioStatistic] | None = None
 
+
 @dataclass
 class UserStatisticTypes:
     """The user's anime & manga statistics"""
+
     anime: UserStatistics | None = None
     """The user's anime statistics"""
     manga: UserStatistics | None = None
     """The user's manga statistics"""
 
+
 @dataclass
 class MediaListOptions:
     """The user's media list options"""
+
     scoreFormat: str | None = None
     """The score format the user is using for media lists"""
     rowOrder: str | None = None
@@ -657,42 +723,46 @@ class MediaListOptions:
     mangaList: dict[str, Any] | None = None
     """List of manga lists custom lists the user has created"""
 
+
 class ModRole(Enum):
     """Mod role Enums"""
-    ADMIN = 'ADMIN'
+
+    ADMIN = "ADMIN"
     """An AniList administrator"""
-    LEAD_DEVELOPER = 'LEAD_DEVELOPER'
+    LEAD_DEVELOPER = "LEAD_DEVELOPER"
     """A head developer of AniList"""
-    DEVELOPER = 'DEVELOPER'
+    DEVELOPER = "DEVELOPER"
     """An AniList developer"""
-    LEAD_COMMUNITY = 'LEAD_COMMUNITY'
+    LEAD_COMMUNITY = "LEAD_COMMUNITY"
     """A lead community moderator"""
-    COMMUNITY = 'COMMUNITY'
+    COMMUNITY = "COMMUNITY"
     """A community moderator"""
-    DISCORD_COMMUNITY = 'DISCORD_COMMUNITY'
+    DISCORD_COMMUNITY = "DISCORD_COMMUNITY"
     """A discord community moderator"""
-    LEAD_ANIME_DATA = 'LEAD_ANIME_DATA'
+    LEAD_ANIME_DATA = "LEAD_ANIME_DATA"
     """A lead anime data moderator"""
-    ANIME_DATA = 'ANIME_DATA'
+    ANIME_DATA = "ANIME_DATA"
     """An anime data moderator"""
-    LEAD_MANGA_DATA = 'LEAD_MANGA_DATA'
+    LEAD_MANGA_DATA = "LEAD_MANGA_DATA"
     """A lead manga data moderator"""
-    MANGA_DATA = 'MANGA_DATA'
+    MANGA_DATA = "MANGA_DATA"
     """A manga data moderator"""
-    LEAD_SOCIAL_MEDIA = 'LEAD_SOCIAL_MEDIA'
+    LEAD_SOCIAL_MEDIA = "LEAD_SOCIAL_MEDIA"
     """A lead social media moderator"""
-    SOCIAL_MEDIA = 'SOCIAL_MEDIA'
+    SOCIAL_MEDIA = "SOCIAL_MEDIA"
     """A social media moderator"""
-    RETIRED = 'RETIRED'
+    RETIRED = "RETIRED"
     """A retired moderator"""
-    CHARACTER_DATA = 'CHARACTER_DATA'
+    CHARACTER_DATA = "CHARACTER_DATA"
     """A character data moderator"""
-    STAFF_DATA = 'STAFF_DATA'
+    STAFF_DATA = "STAFF_DATA"
     """A staff data moderator"""
+
 
 @dataclass
 class UserPreviousName:
     """A user's previous name"""
+
     name: str
     """The previous name of the user"""
     createdAt: datetime | None = None
@@ -700,9 +770,11 @@ class UserPreviousName:
     updatedAt: datetime | None = None
     """When the user changed their name"""
 
+
 @dataclass
 class User:
     """A user"""
+
     id: int
     """The id of the user"""
     name: str
@@ -749,6 +821,7 @@ class User:
 @dataclass
 class MediaList:
     """Media list information"""
+
     id: int
     """The id of the list entry"""
     mediaId: int

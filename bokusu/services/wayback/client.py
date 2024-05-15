@@ -33,20 +33,25 @@ class WaybackClient:
             # wait until 6 seconds
             last_snapshot = (datetime.now() - self.last_snapshot).seconds
             if last_snapshot < 6:
-                rprint(f"[red]Waiting {6 - last_snapshot} seconds before saving {url}[/red]")
+                rprint(
+                    f"[red]Waiting {6 - last_snapshot} seconds before saving {url}[/red]"
+                )
                 sleep(6 - last_snapshot)
         # save the URL
         save = SaveApi(url, USER_AGENT)
         try:
             snapshot = save.save()
         except MaxRetries:
-            rprint(f"[red]Maximum retries exceeded for {url}, waits for 5 minutes[/red]")
+            rprint(
+                f"[red]Maximum retries exceeded for {url}, waits for 5 minutes[/red]"
+            )
             sleep(300)
             snapshot = save.save()
         # return the URL of the saved page
         self.last_snapshot = datetime.now()
         self.last_url = url
         return snapshot
+
 
 WAYBACK_CLIENT = WaybackClient()
 """Constant for WaybackClient instance, used to save last snapshot and last URL"""

@@ -6,7 +6,9 @@ from bokusu.core.folder import add_directory
 from bokusu.core.secrets import ANIMEPLANET_USERNAME
 
 
-async def export_animeplanet(media_type: Literal["anime", "manga"]) -> tuple[str | None, bool]:
+async def export_animeplanet(
+    media_type: Literal["anime", "manga"],
+) -> tuple[str | None, bool]:
     """
     Export list from Anime-Planet
 
@@ -36,4 +38,3 @@ async def export_animeplanet(media_type: Literal["anime", "manga"]) -> tuple[str
     except Exception as _:
         print_exc()
         return None, True
-
