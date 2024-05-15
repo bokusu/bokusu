@@ -74,11 +74,14 @@ def cli_about(
     max_info = max(len(info) for info in infos)
     if not hide_logo:
         lines = catinabox.split("\n")
-        # Add the info lines, starting from the 2nd line
+        # TODO: Bro, this is a mess, refactor this :'D
         for i, info in enumerate(infos, 1):
             border = "│" if i not in [1, len(infos) + 1] else "╭─" if i == 1 else "╰─"
             end_border = "│" if i != len(infos) + 1 else "╯"
             # add end border after calculating the length of the info
+            if info == "":
+                # change to dashes if the info is empty
+                info = ci("─" * max_info, "37")
             if i != 1:
                 info += " " * (max_info - len(info)) + " " + end_border
             lines[i] += "  " + border + " " + info  # type: ignore
