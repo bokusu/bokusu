@@ -2,39 +2,40 @@
     "$schema": "https://unpkg.com/graphql-config/config-schema.json",
     "projects": {
         "anilist": {
-            "schema": "https://graphql.anilist.co/",
+            "schema": "./bokusu/services/anilist/schema.gql",
             "documents": [
-                "./bokusu/anilist/anime_query.gql",
-                "./bokusu/anilist/manga_query.gql"
+                "./bokusu/services/anilist/anime_query.gql",
+                "./bokusu/services/anilist/manga_query.gql",
+                "./bokusu/services/anilist/user_query.gql"
             ]
         },
         "annict": {
-            "schema": "https://api.annict.com/graphql",
+            "schema": "./bokusu/services/annict/schema.gql",
             "documents": [
-                "./bokusu/annict/annict.gql"
-            ],
-            "extensions": {
-                "headers": {
-                    "Authorization": "Bearer ${ANNICT_TOKEN}"
-                }
-            }
-        },
-        "kitsu": {
-            "schema": "https://kitsu.io/api/graphql",
-            "documents": [
-                "./bokusu/kitsu/*.gql"
+                "./bokusu/services/annict/anime_query.gql",
+                "./bokusu/services/annict/user_query.gql"
             ]
         },
-        "notify": {
-            "schema": "https://notify.moe/graphql",
+        "kitsu": {
+            "schema": "./bokusu/services/kitsu/schema.gql",
             "documents": [
-                "./bokusu/notify/*.gql"
+                "./bokusu/services/kitsu/anime_query.gql",
+                "./bokusu/services/kitsu/manga_query.gql",
+                "./bokusu/services/kitsu/user_query.gql"
             ]
         },
         "livechart": {
-            "schema": "https://www.livechart.me/graphql",
+            "schema": "./bokusu/services/livechart/schema.gql",
             "documents": [
-                "./bokusu/livechart/*.gql"
+                "./bokusu/services/livechart/anime_query.gql"
+            ]
+        },
+        "shikimori": {
+            "schema": "./bokusu/services/shikimori/schema.gql",
+            "documents": [
+                "./bokusu/services/shikimori/anime_query.gql",
+                "./bokusu/services/shikimori/manga_query.gql",
+                "./bokusu/services/shikimori/user_query.gql"
             ]
         }
     }
