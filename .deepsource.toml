@@ -8,3 +8,6 @@ name = "python"
 
 [[analyzers]]
 name = "secrets"
+
+[[transformers]]
+name = "ruff"
