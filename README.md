@@ -141,7 +141,6 @@ For now, there are no sites that are supported with caveats, yay!
 * [ ] [Nautiljon](https://nautiljon.com) &mdash; 🍥📔📺🎬 / 👥🌐📸🏃
 * [ ] [RAWG](https://rawg.io) &mdash; 🎮 / 👥
 * [ ] [The Movie Database](https://themoviedb.org) &mdash; 📺🎬 / 📸
-* [ ] [WakuWaku](https://thewakuwaku.com) &mdash; 🍥 / 👥📸
 
 If you want to see a site that is not listed here, please open an issue and we'll
 see what we can do.
