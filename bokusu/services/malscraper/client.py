@@ -27,17 +27,14 @@ class MALScraper:
     async def __aexit__(self, exc_type, exc_value, traceback):
         """Async exit"""
 
-    async def export_list(self,
-                    username: str,
-                    source: Literal[
-                        "anilist",
-                        "animeplanet",
-                        "kitsu",
-                        "myanimelist"],
-                    media_type: Literal["anime", "manga"],
-                    update_on_import: bool = True,
-                    use_alt: bool = False,
-                    ) -> tuple[str, bool]:
+    async def export_list(
+        self,
+        username: str,
+        source: Literal["anilist", "animeplanet", "kitsu", "myanimelist"],
+        media_type: Literal["anime", "manga"],
+        update_on_import: bool = True,
+        use_alt: bool = False,
+    ) -> tuple[str, bool]:
         """
         Export list using malscraper from determined source
 
@@ -58,9 +55,11 @@ class MALScraper:
         if use_alt is True and source in ["animeplanet", "kitsu"]:
             raise ValueError(f"Source {source} does not support alt mode")
         alt = "alt" if use_alt else ""
-        target =(f"{source}{media_type}{alt}"
-                 if source != "myanimelist"
-                 else f"{media_type}{alt}")
+        target = (
+            f"{source}{media_type}{alt}"
+            if source != "myanimelist"
+            else f"{media_type}{alt}"
+        )
         body = {
             "username": username,
             "listtype": target,
@@ -76,9 +75,8 @@ class MALScraper:
             "User-Agent": self.user_agent,
         }
         async with aiohttp.ClientSession() as session:
-            async with session.post(f"{self.base_url}/scrape",
-                                    data=body,
-                                    headers=headers) as post:
+            async with session.post(
+                f"{self.base_url}/scrape", data=body, headers=headers
+            ) as post:
                 text = await post.text()
                 return text
-

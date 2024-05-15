@@ -1,7 +1,9 @@
 from importlib import import_module
 
+
 class ResourceNotFoundError(Exception):
     """Exception raised when a resource is not found."""
+
 
 def read_resource(directory: str, file_path: str, return_as_path: bool = False) -> str:
     """
@@ -26,7 +28,9 @@ def read_resource(directory: str, file_path: str, return_as_path: bool = False) 
         full_file_path = f"{module_path}/{directory}/{file_path}"
         if return_as_path:
             return full_file_path
-        with open(full_file_path, 'r') as f:
+        with open(full_file_path, "r") as f:
             return f.read()
     except (ImportError, FileNotFoundError):
-        raise ResourceNotFoundError(f"File '{file_path}' not found inside bokusu package.")
+        raise ResourceNotFoundError(
+            f"File '{file_path}' not found inside bokusu package."
+        )

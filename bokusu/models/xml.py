@@ -12,6 +12,7 @@ class XMLException(Exception):
     XML Exception.
     """
 
+
 @dataclass
 class Tag:
     """
