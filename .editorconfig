@@ -8,3 +8,6 @@ trim_trailing_whitespace = true
 
 [**.{gql,md}]
 indent_size = 2
+
+[bokusu/__main__.py]
+trim_trailing_whitespace = false
