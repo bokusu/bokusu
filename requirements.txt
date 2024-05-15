@@ -1,16 +1,19 @@
-anidbcli
-animeapi-py
-beautifulsoup4
-cloudscraper
-dacite
-fake-useragent
-fastapi[all]
+# Base typings and additional dependencies
 git+https://github.com/rensetsu/librensetsu.git
-poli-enum
-pwinput
-pykeepass
-python-box[all]~=7.0
-requests
+
+# AniDB UDP API Interface
+anidbcli
+# Database Relational Mapping
+animeapi-py
+# FastAPI, used for OAuth with redirection
+fastapi[all]
+# Data Validation
+pycountry
+pydantic[email]
+pydantic-extra-types
+# Slugify
 slugify
+# CLI Argument Parser
 typer[all]
+# Wayback Machine API
 waybackpy
