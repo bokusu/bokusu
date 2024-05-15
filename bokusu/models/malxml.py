@@ -25,6 +25,50 @@ class ReplayValue(Enum):
     VHIGH = "Very High"
     """Very high."""
 
+    @classmethod
+    def from_int(cls, value: int) -> "ReplayValue":
+        """
+        Converts an integer to a replay value.
+
+        :param value: The integer value.
+        :type value: int
+        :return: The replay value.
+        :rtype: ReplayValue
+        """
+        if value == 1:
+            return cls.VLOW
+        if value == 2:
+            return cls.LOW
+        if value == 3:
+            return cls.MEDIUM
+        if value == 4:
+            return cls.HIGH
+        if value == 5:
+            return cls.VHIGH
+        raise ValueError(f"Invalid replay value: {value}")
+
+    @classmethod
+    def from_str(cls, value: str) -> "ReplayValue":
+        """
+        Converts a string to a replay value.
+
+        :param value: The string value.
+        :type value: str
+        :return: The replay value.
+        :rtype: ReplayValue
+        """
+        if value == "Very Low":
+            return cls.VLOW
+        if value == "Low":
+            return cls.LOW
+        if value == "Medium":
+            return cls.MEDIUM
+        if value == "High":
+            return cls.HIGH
+        if value == "Very High":
+            return cls.VHIGH
+        raise ValueError(f"Invalid replay value: {value}")
+
 
 class Priority(Enum):
     """Priority enum."""
@@ -35,6 +79,42 @@ class Priority(Enum):
     """Medium priority."""
     HIGH = "High"
     """High priority."""
+
+    @classmethod
+    def from_int(cls, value: int) -> "Priority":
+        """
+        Converts an integer to a priority.
+
+        :param value: The integer value.
+        :type value: int
+        :return: The priority.
+        :rtype: Priority
+        """
+        if value == 1:
+            return cls.LOW
+        if value == 2:
+            return cls.MEDIUM
+        if value == 3:
+            return cls.HIGH
+        raise ValueError(f"Invalid priority value: {value}")
+
+    @classmethod
+    def from_str(cls, value: str) -> "Priority":
+        """
+        Converts a string to a priority.
+
+        :param value: The string value.
+        :type value: str
+        :return: The priority.
+        :rtype: Priority
+        """
+        if value == "Low":
+            return cls.LOW
+        if value == "Medium":
+            return cls.MEDIUM
+        if value == "High":
+            return cls.HIGH
+        raise ValueError(f"Invalid priority value: {value}")
 
 
 class PostToSNS(Enum):
@@ -209,6 +289,38 @@ class AnimeType(Enum):
     """Promotional video."""
     TV_SPECIAL = "TV Special"
     """TV special episode."""
+    UNKNOWN = "Unknown"
+    """Unknown type."""
+
+    @classmethod
+    def from_str(cls, value: str) -> "AnimeType":
+        """
+        Converts a string to an anime type.
+
+        :param value: The string value.
+        :type value: str
+        :return: The anime type.
+        :rtype: AnimeType
+        """
+        if value == "TV":
+            return cls.TV
+        if value == "OVA":
+            return cls.OVA
+        if value == "Movie":
+            return cls.MOVIE
+        if value == "Special":
+            return cls.SPECIAL
+        if value == "ONA":
+            return cls.ONA
+        if value == "Music":
+            return cls.MUSIC
+        if value == "CM":
+            return cls.CM
+        if value == "PV":
+            return cls.PV
+        if value == "TV Special":
+            return cls.TV_SPECIAL
+        return cls.UNKNOWN
 
 
 class AnimeStorageMedium(Enum):
@@ -228,6 +340,32 @@ class AnimeStorageMedium(Enum):
     """Retail DVD."""
     VHS = "VHS"
     """VHS tape."""
+
+    @classmethod
+    def from_str(cls, value: str) -> "AnimeStorageMedium":
+        """
+        Converts a string to a storage medium.
+
+        :param value: The string value.
+        :type value: str
+        :return: The storage medium.
+        :rtype: AnimeStorageMedium
+        """
+        if value == "Hard Drive":
+            return cls.HARD_DRIVE
+        if value == "External HD":
+            return cls.EXTERNAL_HD
+        if value == "NAS":
+            return cls.NAS
+        if value == "Blu-ray":
+            return cls.BLU_RAY
+        if value == "DVD / CD":
+            return cls.DVD_CD
+        if value == "Retail DVD":
+            return cls.RETAIL_DVD
+        if value == "VHS":
+            return cls.VHS
+        raise ValueError(f"Invalid storage medium: {value}")
 
 
 @dcls
@@ -380,6 +518,32 @@ class MangaStorageMedium(Enum):
     """Retail manga."""
     MAGAZINE = "Magazine"
     """Magazine."""
+
+    @classmethod
+    def from_str(cls, value: str) -> "MangaStorageMedium":
+        """
+        Converts a string to a storage medium.
+
+        :param value: The string value.
+        :type value: str
+        :return: The storage medium.
+        :rtype: MangaStorageMedium
+        """
+        if value == "Hard Drive":
+            return cls.HARD_DRIVE
+        if value == "External HD":
+            return cls.EXTERNAL_HD
+        if value == "NAS":
+            return cls.NAS
+        if value == "Blu-ray":
+            return cls.BLU_RAY
+        if value == "DVD / CD":
+            return cls.DVD_CD
+        if value == "Retail Manga":
+            return cls.RETAIL_MANGA
+        if value == "Magazine":
+            return cls.MAGAZINE
+        raise ValueError(f"Invalid storage medium: {value}")
 
 
 @dcls
