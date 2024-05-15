@@ -458,9 +458,9 @@ Anime entry. The following tags were used:
 | `<my_rewatch_value>`    | [Replay Priority][replay] \| [null] |           |                 | Priority of rewatching                                                         |
 | `<my_priority>`         | [Title Priority][title]             |           | `Low`           | Priority of the anime                                                          |
 | `<my_tags>`             | [arr]                               |           |                 | Tags separated by commas, can include spaces                                   |
-| `<my_rewatching>`       | [bool]                              | Yes       | `0`             | `1` if anime is being rewatched, `0` otherwise                                 |
+| `<my_rewatching>`       | [bool] (`1`, `0`)                   | Yes       | `0`             | `1` if anime is being rewatched, `0` otherwise                                 |
 | `<my_rewatching_ep>`    | [int], *Legacy*                     |           | `0`             | Episode in the rewatch, MAL leaves it at 0[^2]                                 |
-| `<my_discuss>`          | [bool]                              |           | `0`             | `1` if the anime is open for discussion, `0` otherwise                         |
+| `<my_discuss>`          | [bool] (`1`, `0`)                   |           | `0`             | `1` if the anime is open for discussion, `0` otherwise                         |
 | `<my_sns>`              | [SNS Share][sns]                    |           | `default`       | Share the entry updates to the social network services                         |
 | `<update_on_import>`    | [Update on Import][uoi]             | Yes       | `0`             | Overwrite existing entry on import                                             |
 
@@ -514,8 +514,8 @@ Manga entry. The following tags were used:
 | `<my_tags>`          | [arr]                               |           |                | Tags separated by commas, can include spaces                                   |
 | `<my_priority>`      | [Title Priority][title]             |           | `Low`          | Priority of the manga                                                          |
 | `<my_reread_value>`  | [Replay Priority][replay] \| [null] |           |                | Priority of re-reading                                                         |
-| `<my_rereading>`     | [bool]                              | Yes       | `NO`           | `YES` if manga is being re-read, `NO` otherwise                                |
-| `<my_discuss>`       | [bool]                              |           | `YES`          | `YES` if the manga is open for discussion, `NO` otherwise                      |
+| `<my_rereading>`     | [bool] (`YES`, `NO`)                | Yes       | `NO`           | `YES` if manga is being re-read, `NO` otherwise                                |
+| `<my_discuss>`       | [bool] (`YES`, `NO`)                |           | `YES`          | `YES` if the manga is open for discussion, `NO` otherwise                      |
 | `<my_sns>`           | [SNS Share][sns]                    |           | `default`      | Share the entry updates to the social network services                         |
 | `<update_on_import>` | [Update on Import][uoi]             | Yes       | `0`            | Overwrite existing entry on import                                             |
 
