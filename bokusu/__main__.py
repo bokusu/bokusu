@@ -1,5 +1,18 @@
-import typer as ty
+from os import getenv
+from platform import (
+    architecture,
+    platform,
+    processor,
+    python_build,
+    python_implementation,
+    python_version,
+    system,
+)
+from re import sub
+from sys import executable
 from typing import Annotated
+
+import typer as ty
 
 app = ty.Typer(no_args_is_help=True)
 
@@ -20,21 +33,16 @@ def cli_about(
             help="Hide the logo",
         ),
     ] = False,
+    monochrome: Annotated[
+        bool,
+        ty.Option(
+            "--monochrome",
+            help="Use monochrome logo",
+        ),
+    ] = False,
 ):
-    from bokusu.core.const import __version__
-    from platform import (
-        platform,
-        python_version,
-        python_implementation,
-        python_build,
-        processor,
-        architecture,
-    )
-
-    # python exe path, relative path
-    from sys import executable
-    from os import getenv
     from bokusu.core.commons import read_resource
+    from bokusu.core.const import __version__
 
     user = getenv("USERPROFILE") or getenv("HOME") or ""
     exe = executable.replace(user, "~")
@@ -53,7 +61,10 @@ def cli_about(
         f"Processor: {processor()}",
         f"Architecture: {architecture()[0]}",
     ]
+    # if platform is windows, remove ansii color
     catinabox = read_resource("assets", "logo.ans")
+    if system() == "Windows" or monochrome:
+        catinabox = sub(r"\033\[[0-9;]*m", "", catinabox)
     max_info = max(len(info) for info in infos)
     if not hide_logo:
         lines = catinabox.split("\n")
