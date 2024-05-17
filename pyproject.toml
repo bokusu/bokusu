@@ -7,6 +7,7 @@ name = "bokusu"
 authors = [
     { name = "Sultan Iskandar Maulana", email = "hello@nattadasu.my.id" }
 ]
+version = "0.0.1"
 description = "Easily backups your media lists from 17 sites and counting with async compatibility in mind."
 requires-python = ">=3.10"
 license = { text = "AGPL-3.0-or-later" }
@@ -35,21 +36,27 @@ classifiers = [
     "Typing :: Typed"
 ]
 dynamic = [
-    "version",
     "readme",
     "dependencies"
 ]
 keywords = ["backup", "media", "list", "async", "aiohttp", "anime", "manga", "lightnovel", "visualnovel", "music", "movie", "tv", "series", "drama", "game", "book", "novel", "comic", "webtoon", "manhwa"]
 
 [project.urls]
-Homepage = "https://github.com/Animanga-Initiative/bokusu"
-"Bug Tracker" = "https://github.com/Animanga-Initiative/bokusu/issues"
-Source = "https://github.com/Animanga-Initiative/bokusu"
+Homepage = "https://github.com/bokusu/bokusu"
+"Bug Tracker" = "https://github.com/bokusu/bokusu/issues"
+Source = "https://github.com/bokusu/bokusu"
 
 [project.scripts]
-bokusu = "bokusu.__main__:main"
+bokusu = "bokusu.__main__:app"
+
+[tool.setuptools]
+packages = ["bokusu"]
+include-package-data = true
+
 
 [tool.setuptools.dynamic]
-version = { attr = "bokusu.__version__" }
 readme = { file = "README.md" }
 dependencies = { file = "requirements.txt" }
+
+[tool.setuptools.package-data]
+"bokusu" = ["**/*"]
