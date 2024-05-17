@@ -1,25 +1,6 @@
 import typer as ty
 from typing import Annotated
 
-catinabox = """        █████          █████        
-       ██▓▒██████████████▒▓██       
-       ██▓███▒░░▒▒▒▒░░▒▓█████       
-       ███▒░░▒░░░░░░░░░░░▒███       
-       ██▒▒░██▒░░██░░░██░░▒██       
-    █████▓▓▒▒░░░▒▓▓▒░░░░▒▓▓█████    
-   ██▓▓███▓▒▒▒░░░░░░░░▒▒▒▓███▓▓██   
- ███▒░░░░▒▒░▒▓█▓▒░░▒▓█▓▒░▒▓░░░░▒███ 
-██▓▒░░░░░░▒▒▒▒▒▒███▓▒▒▒▒▒▒░░░░░░▒▓██
-█████▓▓▒▒░░░░░▒▓████▓▒░░░░░▒▒▓▓█████
-    ██▓▓██▓▓▒▒██▒██▒██▒▒▓▓██▓▓██    
-    ██▒▒▒▒▓▓▓█▓▒▒██░▒▓█▓▓▓▒▒▒▒██    
-    ██▒░░░░▒▒▒▒░░██░░▒▒▒▒▒░░░▒██    
-    ██▒░░░▒▒░░░░░██▒▒▒░░░░░░░▒██    
-    ██████▓▓░░░░░██▒▒▒░░▒▓██████    
-        ███████▓▒██▒▓███████        
-             ██████████             
-"""
-
 app = ty.Typer(no_args_is_help=True)
 
 
@@ -35,12 +16,12 @@ def cli_about(
     hide_logo: Annotated[
         bool,
         ty.Option(
-            "--hide_logo",
+            "--hide-logo",
             help="Hide the logo",
         ),
     ] = False,
 ):
-    from core.const import __version__
+    from bokusu.core.const import __version__
     from platform import (
         platform,
         python_version,
@@ -53,6 +34,7 @@ def cli_about(
     # python exe path, relative path
     from sys import executable
     from os import getenv
+    from bokusu.core.commons import read_resource
 
     user = getenv("USERPROFILE") or getenv("HOME") or ""
     exe = executable.replace(user, "~")
@@ -71,6 +53,7 @@ def cli_about(
         f"Processor: {processor()}",
         f"Architecture: {architecture()[0]}",
     ]
+    catinabox = read_resource("assets", "logo.ans")
     max_info = max(len(info) for info in infos)
     if not hide_logo:
         lines = catinabox.split("\n")
@@ -102,7 +85,7 @@ def cli_about(
 @app.command(name="ver", hidden=True)
 @app.command(name="v", hidden=True)
 def version():
-    from core.const import __version__
+    from bokusu.core.const import __version__
 
     ty.echo(f"Bokusu v{__version__}")
 

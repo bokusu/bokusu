@@ -2,12 +2,14 @@
 charset = utf-8
 end_of_line = lf
 indent_size = 4
-insert_final_newline = true
 indent_style = space
+insert_final_newline = true
 trim_trailing_whitespace = true
 
 [**.{gql,md}]
 indent_size = 2
 
-[bokusu/__main__.py]
+[**.{ansi,ans}]
+indent_size = unset
+insert_final_newline = false
 trim_trailing_whitespace = false
