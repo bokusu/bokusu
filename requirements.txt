@@ -1,5 +1,5 @@
 # Base typings and additional dependencies
-git+https://github.com/rensetsu/librensetsu.git
+librensetsu @ git+https://github.com/rensetsu/librensetsu.git #egg=librensetsu
 
 # AniDB UDP API Interface
 anidbcli
@@ -8,12 +8,8 @@ animeapi-py
 # FastAPI, used for OAuth with redirection
 fastapi[all]
 # Data Validation
-pycountry
 pydantic[email]
-pydantic-extra-types
-# Slugify
-slugify
 # CLI Argument Parser
 typer[all]
-# Wayback Machine API
+# Wayback Machine API Interface
 waybackpy
