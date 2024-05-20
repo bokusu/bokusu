@@ -1,6 +1,7 @@
 from pathlib import Path
 from importlib import import_module
 
+
 class ResourceNotFoundError(Exception):
     """Exception raised when a resource is not found."""
 
