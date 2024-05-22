@@ -3,6 +3,7 @@ from datetime import time as dt_tm
 from datetime import timezone as dt_tz
 from enum import Enum
 from typing import Any, Literal
+from fractions import Fraction as Frac
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -64,7 +65,7 @@ class UserEntryStatus(str, Enum):
     on_hold = onhold = paused = "onhold"
     stopped = dropped = "dropped"
     plan_to_watch = plan_to_read = plan_to_play = plan_to_listen = planned = "planned"
-    rewatching = rereading = replaying = relistening = repeat = "repeat"
+    rewatching = rereading = replaying = relistening = repeating = repeat = "repeat"
     not_interested = notinterested = "notinterested"
 
 
@@ -113,7 +114,7 @@ class MediaIdentifier(BaseModel):
     """Schema for media identifier"""
 
     type: MediaIdType = Field(..., description="Type of media identifier")
-    value: str = Field(..., description="Value of media identifier")
+    value: str | int = Field(..., description="Value of media identifier")
     additional: dict[MediaIdType, str] | None = Field(
         None, description="Additional media identifier"
     )
@@ -192,7 +193,18 @@ class MediaEntry(BaseModel):
         mal_id = self.mappings.get("myanimelist", None) if self.mappings else None
         mal_id = int(mal_id) if mal_id else 0  # type: ignore
         score = self.score.value if self.score.value else 0
-        score = round(score)
+        # calculate scores based on maximum score allowed by platform
+        # 5 max > 0, 2, 4, 6, 8, 10
+        # 100 max > 0..10 # divide by 10
+        # 10 max > 0..10
+        # 3 max > 0, 3, 6, 10
+        score_mx = self.score.maximum if self.score.maximum else 0
+        if score_mx != 3:
+            score = Frac(f'{score}') / Frac(f'{score_mx}') * 10
+            score = round(float(score))
+        else:
+            scores = (0, 3, 6, 10)
+            score = int(scores[score])  # type: ignore
         if isinstance(self.tags, str):
             self.tags = [self.tags]
         if self.type == MediaType.animation:
@@ -413,7 +425,7 @@ class HeaderedRymsf(BaseModel):
         validate_assignment=True,
     )
 
-    header: dict[str, Any] = Field(..., description="Header of the file")
+    header: Header = Field(..., description="Header of the file")
     data: list[MediaEntry] = Field(None, description="Exported data")
 
     @property
