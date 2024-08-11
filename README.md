@@ -20,6 +20,7 @@ compability in mind.
 > to be implemented and supported in the future.
 
 <!-- markdownlint-disable MD033 -->
+
 <table>
   <tr>
     <td align="center"><a href="https://anilist.co"><img src="images/anilist.png" alt="AniList" width="100"></a></td>
@@ -36,16 +37,16 @@ compability in mind.
     <td align="center"><a href="https://kaize.io">Kaize</a><br>🍥📔 / 👥📸🧼</td>
   </tr>
   <tr>
-    <td align="center"><a href="https://kitsu.io"><img src="images/kitsu.png" alt="Kitsu" width="100"></a></td>
+    <td align="center"><a href="https://kitsu.app"><img src="images/kitsu.png" alt="Kitsu" width="100"></a></td>
     <td align="center"><a href="https://mangadex.org"><img src="images/mangadex.png" alt="MangaDex" width="100"></a></td>
     <td align="center"><a href="https://mangaupdates.com"><img src="https://www.mangaupdates.com/images/mascot.gif" alt="MangaUpdates" width="100"></a></td>
     <td align="center"><a href="https://myanimelist.net"><img src="images/myanimelist.png" alt="MyAnimeList" width="100"></a></td>
     <td align="center"><a href="https://notify.moe"><img src="images/notifymoe.png" alt="notify.moe" width="100"></a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://kitsu.io">Kitsu</a><br>🍥📔 / 🔐📸</td>
+    <td align="center"><a href="https://kitsu.app">Kitsu</a><br>🍥📔 / 🔐📸</td>
     <td align="center"><a href="https://mangadex.org">MangaDex</a><br>📔 / 🔐</td>
-    <td align="center"><a href="https://mangaupdates.com">MangaUpdates</a><br>📔 / 🔐📸</td>>
+    <td align="center"><a href="https://mangaupdates.com">MangaUpdates</a><br>📔 / 🔐📸</td>
     <td align="center"><a href="https://myanimelist.net">MyAnimeList</a><br>🍥📔 / 👥🔐📸</td>
     <td align="center"><a href="https://notify.moe">Notify</a><br>🍥 / 👥📸</td>
   </tr>
