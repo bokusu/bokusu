@@ -200,7 +200,7 @@ class MediaEntry(BaseModel):
         # 3 max > 0, 3, 6, 10
         score_mx = self.score.maximum if self.score.maximum else 0
         if score_mx != 3:
-            score = Frac(f'{score}') / Frac(f'{score_mx}') * 10
+            score = Frac(f"{score}") / Frac(f"{score_mx}") * 10
             score = round(float(score))
         else:
             scores = (0, 3, 6, 10)
